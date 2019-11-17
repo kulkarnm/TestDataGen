@@ -1,0 +1,32 @@
+{
+  "test-input-name": "createBusinessAccount",
+  "test-input-type": "request",
+  "test-input-source": "external",
+  "permissibleValueRange": "na",
+  "child-test-inputs": [
+    {
+      "test-input-name": "merchantId",
+      "test-input-type": "string",
+      "test-input-source": "external",
+      "permissibleValueRange": "merchant1"
+    },
+    {
+      "test-input-name": "startDate",
+      "test-input-type": "date",
+      "test-input-source": "external",
+      "permissibleValueRange": "#(businessAccountStartDateFormatted)"
+    },
+    {
+      "test-input-name": "endDate",
+      "test-input-type": "date",
+      "test-input-source": "external",
+      "permissibleValueRange": "#(businessAccountEndDateFormatted)"
+    },
+    {
+      "test-input-name": "dateOfProvision",
+      "test-input-type": "date",
+      "test-input-source": "external",
+      "permissibleValueRange": "#(businessAccountStartDateFormatted)"
+    }
+  ]
+}

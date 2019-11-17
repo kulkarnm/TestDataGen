@@ -1,0 +1,25 @@
+{
+  "process-name": "business-initial-setup",
+  "process-execution" : "one-time",
+  "multi-casting" : false,
+  "process-elements": [
+    {
+      "process-name": "create-business-account",
+      "process-execution" : "one-time",
+      "execution-count" : 1,
+      "dataset-config": "create-business-account-dataset-config#createBusinessAccount"
+    },
+    {
+      "process-name": "config-business-account",
+      "process-execution" : "one-time",
+      "execution-count" : 1,
+      "dataset-config": "configure-businessaccount-dataset-config#configureBusinessAccount"
+    },
+    {
+      "process-name": "set-others-budget",
+      "process-execution" : "one-time",
+      "execution-count" : 1,
+      "dataset-config": "set-others-budget-dataset-config#setOthersBudget"
+    }
+  ]
+}

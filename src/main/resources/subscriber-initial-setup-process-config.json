@@ -1,0 +1,18 @@
+{
+  "process-name": "subscriber-initial-setup",
+  "process-execution" : "one-time",
+  "execution-count" : 1,
+  "multi-casting" : true,
+  "process-elements": [
+    {
+      "process-name": "create-subscription-rules",
+      "process-execution" : "one-time",
+      "dataset-config": "subscription-rules-dataset-config#subscriptionRules"
+    },
+    {
+      "process-name": "create-deliverycharges-rules",
+      "process-execution" : "one-time",
+      "dataset-config": "deliverycharges-rules-dataset-config#deliveryChargesRules"
+    }
+  ]
+}

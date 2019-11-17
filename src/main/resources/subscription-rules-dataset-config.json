@@ -1,0 +1,273 @@
+{
+  "test-input-name": "subscriptionRules",
+  "test-input-type": "request",
+  "test-input-source": "external",
+  "permissibleValueRange": "na",
+  "child-test-inputs": [
+    {
+      "test-input-name": "maximumPermissibleAmount",
+      "test-input-type": "int",
+      "test-input-source": "external",
+      "permissibleValueRange": "50000"
+    },
+    {
+      "test-input-name": "minimumAmountForDiscountEligibility",
+      "test-input-type": "int",
+      "test-input-source": "external",
+      "permissibleValueRange": "20000"
+    },
+    {
+      "test-input-name": "maximumPermissibleDiscount",
+      "test-input-type": "float",
+      "test-input-source": "external",
+      "permissibleValueRange": "0.2"
+    },
+    {
+      "test-input-name": "maximumPermissibleDiscountUnit",
+      "test-input-type": "int",
+      "test-input-source": "external",
+      "permissibleValueRange": "1"
+    },
+    {
+      "test-input-name": "minimumAmountEligibleForFreeShipping",
+      "test-input-type": "int",
+      "test-input-source": "external",
+      "permissibleValueRange": "1000"
+    },
+    {
+      "test-input-name": "diffBetweenDeliveryPreparationAndDispatchDate",
+      "test-input-type": "int",
+      "test-input-source": "external",
+      "permissibleValueRange": "2"
+    },
+    {
+      "test-input-name": "actualsAggregationPeriodForTargetForecast",
+      "test-input-type": "int",
+      "test-input-source": "external",
+      "permissibleValueRange": "30"
+    },
+    {
+      "test-input-name": "contingencyStockPercentage",
+      "test-input-type": "float",
+      "test-input-source": "external",
+      "permissibleValueRange": "0.1"
+    },
+    {
+      "test-input-name": "subscriptionValueRanges",
+      "test-input-type": "object-array",
+      "test-input-source": "external",
+      "child-test-inputs": [
+        {
+          "test-input-name": "subscriptionValueRange",
+          "test-input-type": "object-array",
+          "test-input-source": "external",
+          "child-test-inputs": [
+            {
+              "test-input-name": "minValue",
+              "test-input-type": "int",
+              "test-input-source": "external",
+              "permissibleValueRange": "0"
+            },
+            {
+              "test-input-name": "maxValue",
+              "test-input-type": "int",
+              "test-input-source": "external",
+              "permissibleValueRange": "4999"
+            }
+          ]
+        },
+        {
+          "test-input-name": "subscriptionValueRange",
+          "test-input-type": "object-array",
+          "test-input-source": "external",
+          "child-test-inputs": [
+            {
+              "test-input-name": "minValue",
+              "test-input-type": "int",
+              "test-input-source": "external",
+              "permissibleValueRange": "5000"
+            },
+            {
+              "test-input-name": "maxValue",
+              "test-input-type": "int",
+              "test-input-source": "external",
+              "permissibleValueRange": "8000"
+            }
+          ]
+        },
+        {
+          "test-input-name": "subscriptionValueRange",
+          "test-input-type": "object-array",
+          "test-input-source": "external",
+          "child-test-inputs": [
+            {
+              "test-input-name": "minValue",
+              "test-input-type": "int",
+              "test-input-source": "external",
+              "permissibleValueRange": "8001"
+            },
+            {
+              "test-input-name": "maxValue",
+              "test-input-type": "int",
+              "test-input-source": "external",
+              "permissibleValueRange": "10000"
+            }
+          ]
+        },
+        {
+          "test-input-name": "subscriptionValueRange",
+          "test-input-type": "object-array",
+          "test-input-source": "external",
+          "child-test-inputs": [
+            {
+              "test-input-name": "minValue",
+              "test-input-type": "int",
+              "test-input-source": "external",
+              "permissibleValueRange": "10001"
+            },
+            {
+              "test-input-name": "maxValue",
+              "test-input-type": "int",
+              "test-input-source": "external",
+              "permissibleValueRange": "13000"
+            }
+          ]
+        },
+        {
+          "test-input-name": "subscriptionValueRange",
+          "test-input-type": "object-array",
+          "test-input-source": "external",
+          "child-test-inputs": [
+            {
+              "test-input-name": "minValue",
+              "test-input-type": "int",
+              "test-input-source": "external",
+              "permissibleValueRange": "13001"
+            },
+            {
+              "test-input-name": "maxValue",
+              "test-input-type": "int",
+              "test-input-source": "external",
+              "permissibleValueRange": "18000"
+            }
+          ]
+        },
+        {
+          "test-input-name": "subscriptionValueRange",
+          "test-input-type": "object-array",
+          "test-input-source": "external",
+          "child-test-inputs": [
+            {
+              "test-input-name": "minValue",
+              "test-input-type": "int",
+              "test-input-source": "external",
+              "permissibleValueRange": "18001"
+            },
+            {
+              "test-input-name": "maxValue",
+              "test-input-type": "int",
+              "test-input-source": "external",
+              "permissibleValueRange": "25000"
+            }
+          ]
+        },
+        {
+          "test-input-name": "subscriptionValueRange",
+          "test-input-type": "object-array",
+          "test-input-source": "external",
+          "child-test-inputs": [
+            {
+              "test-input-name": "minValue",
+              "test-input-type": "int",
+              "test-input-source": "external",
+              "permissibleValueRange": "25001"
+            },
+            {
+              "test-input-name": "maxValue",
+              "test-input-type": "int",
+              "test-input-source": "external",
+              "permissibleValueRange": "30000"
+            }
+          ]
+        },
+        {
+          "test-input-name": "subscriptionValueRange",
+          "test-input-type": "object-array",
+          "test-input-source": "external",
+          "child-test-inputs": [
+            {
+              "test-input-name": "minValue",
+              "test-input-type": "int",
+              "test-input-source": "external",
+              "permissibleValueRange": "30001"
+            },
+            {
+              "test-input-name": "maxValue",
+              "test-input-type": "int",
+              "test-input-source": "external",
+              "permissibleValueRange": "35000"
+            }
+          ]
+        },
+        {
+          "test-input-name": "subscriptionValueRange",
+          "test-input-type": "object-array",
+          "test-input-source": "external",
+          "child-test-inputs": [
+            {
+              "test-input-name": "minValue",
+              "test-input-type": "int",
+              "test-input-source": "external",
+              "permissibleValueRange": "35001"
+            },
+            {
+              "test-input-name": "maxValue",
+              "test-input-type": "int",
+              "test-input-source": "external",
+              "permissibleValueRange": "40000"
+            }
+          ]
+        },
+        {
+          "test-input-name": "subscriptionValueRange",
+          "test-input-type": "object-array",
+          "test-input-source": "external",
+          "child-test-inputs": [
+            {
+              "test-input-name": "minValue",
+              "test-input-type": "int",
+              "test-input-source": "external",
+              "permissibleValueRange": "40001"
+            },
+            {
+              "test-input-name": "maxValue",
+              "test-input-type": "int",
+              "test-input-source": "external",
+              "permissibleValueRange": "50000"
+            }
+          ]
+        },
+        {
+          "test-input-name": "subscriptionValueRange",
+          "test-input-type": "object-array",
+          "test-input-source": "external",
+          "child-test-inputs": [
+            {
+              "test-input-name": "minValue",
+              "test-input-type": "int",
+              "test-input-source": "external",
+              "permissibleValueRange": "50001"
+            },
+            {
+              "test-input-name": "maxValue",
+              "test-input-type": "int",
+              "test-input-source": "external",
+              "permissibleValueRange": "-1"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+

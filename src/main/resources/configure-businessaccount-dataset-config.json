@@ -1,0 +1,38 @@
+{
+  "test-input-name": "configureBusinessAccount",
+  "test-input-type": "request",
+  "test-input-source": "external",
+  "permissibleValueRange": "na",
+  "child-test-inputs": [
+    {
+      "test-input-name": "merchantId",
+      "test-input-type": "string",
+      "test-input-source": "external",
+      "permissibleValueRange": "merchant1"
+    },
+    {
+      "test-input-name": "budgetAdjustmentOptions",
+      "test-input-type": "enum",
+      "test-input-source": "external",
+      "permissibleValueRange": "ACCEPT_AUTOMATED_BUDGET_ADJUSTMENT"
+    },
+    {
+      "test-input-name": "startDateOfFinancialYear",
+      "test-input-type": "date",
+      "test-input-source": "external",
+      "permissibleValueRange": "#(businessAccountStartDateFormatted)"
+    },
+    {
+      "test-input-name": "endDateOfFinancialYear",
+      "test-input-type": "date",
+      "test-input-source": "external",
+      "permissibleValueRange": "#(businessAccountEndDateFormatted)"
+    },
+    {
+      "test-input-name": "taxAsPercentageOfAnnualRevenue",
+      "test-input-type": "float",
+      "test-input-source": "external",
+      "permissibleValueRange": "0.2"
+    }
+  ]
+}

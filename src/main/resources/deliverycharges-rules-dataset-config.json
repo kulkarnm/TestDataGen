@@ -1,0 +1,237 @@
+{
+  "test-input-name": "deliveryChargesRules",
+  "test-input-type": "request",
+  "test-input-source": "external",
+  "permissibleValueRange": "na",
+  "child-test-inputs": [
+    {
+      "test-input-name": "deliveryChargesRule",
+      "test-input-type": "object-array",
+      "test-input-source": "external",
+      "permissibleValueRange": "na",
+      "child-test-inputs": [
+        {
+          "test-input-name": "ruleHeader",
+          "test-input-type": "string",
+          "test-input-source": "external",
+          "permissibleValueRange": "Less than 3 kg"
+        },
+        {
+          "test-input-name": "ruleMinimum",
+          "test-input-type": "float",
+          "test-input-source": "external",
+          "permissibleValueRange": "0.0"
+        },
+        {
+          "test-input-name": "ruleMaximum",
+          "test-input-type": "float",
+          "test-input-source": "external",
+          "permissibleValueRange": "3.0"
+        },
+        {
+          "test-input-name": "ruleUnit",
+          "test-input-type": "string",
+          "test-input-source": "external",
+          "permissibleValueRange": "KG"
+        },
+        {
+          "test-input-name": "applicableValue",
+          "test-input-type": "float",
+          "test-input-source": "external",
+          "permissibleValueRange": "40.0"
+        }
+      ]
+    },
+    {
+      "test-input-name": "deliveryChargesRule",
+      "test-input-type": "object-array",
+      "test-input-source": "external",
+      "permissibleValueRange": "na",
+      "child-test-inputs": [
+        {
+          "test-input-name": "ruleHeader",
+          "test-input-type": "string",
+          "test-input-source": "external",
+          "permissibleValueRange": "3-5 kg"
+        },
+        {
+          "test-input-name": "ruleMinimum",
+          "test-input-type": "float",
+          "test-input-source": "external",
+          "permissibleValueRange": "3.1"
+        },
+        {
+          "test-input-name": "ruleMaximum",
+          "test-input-type": "float",
+          "test-input-source": "external",
+          "permissibleValueRange": "5.0"
+        },
+        {
+          "test-input-name": "ruleUnit",
+          "test-input-type": "string",
+          "test-input-source": "external",
+          "permissibleValueRange": "KG"
+        },
+        {
+          "test-input-name": "applicableValue",
+          "test-input-type": "float",
+          "test-input-source": "external",
+          "permissibleValueRange": "60.0"
+        }
+      ]
+    },
+    {
+      "test-input-name": "deliveryChargesRule",
+      "test-input-type": "object-array",
+      "test-input-source": "external",
+      "permissibleValueRange": "na",
+      "child-test-inputs": [
+        {
+          "test-input-name": "ruleHeader",
+          "test-input-type": "string",
+          "test-input-source": "external",
+          "permissibleValueRange": "5-7 kg"
+        },
+        {
+          "test-input-name": "ruleMinimum",
+          "test-input-type": "float",
+          "test-input-source": "external",
+          "permissibleValueRange": "5.1"
+        },
+        {
+          "test-input-name": "ruleMaximum",
+          "test-input-type": "float",
+          "test-input-source": "external",
+          "permissibleValueRange": "7.0"
+        },
+        {
+          "test-input-name": "ruleUnit",
+          "test-input-type": "string",
+          "test-input-source": "external",
+          "permissibleValueRange": "KG"
+        },
+        {
+          "test-input-name": "applicableValue",
+          "test-input-type": "float",
+          "test-input-source": "external",
+          "permissibleValueRange": "90.0"
+        }
+      ]
+    },
+    {
+      "test-input-name": "deliveryChargesRule",
+      "test-input-type": "object-array",
+      "test-input-source": "external",
+      "permissibleValueRange": "na",
+      "child-test-inputs": [
+        {
+          "test-input-name": "ruleHeader",
+          "test-input-type": "string",
+          "test-input-source": "external",
+          "permissibleValueRange": "7-10 kg"
+        },
+        {
+          "test-input-name": "ruleMinimum",
+          "test-input-type": "float",
+          "test-input-source": "external",
+          "permissibleValueRange": "7.1"
+        },
+        {
+          "test-input-name": "ruleMaximum",
+          "test-input-type": "float",
+          "test-input-source": "external",
+          "permissibleValueRange": "10.0"
+        },
+        {
+          "test-input-name": "ruleUnit",
+          "test-input-type": "string",
+          "test-input-source": "external",
+          "permissibleValueRange": "KG"
+        },
+        {
+          "test-input-name": "applicableValue",
+          "test-input-type": "float",
+          "test-input-source": "external",
+          "permissibleValueRange": "120.0"
+        }
+      ]
+    },
+    {
+      "test-input-name": "deliveryChargesRule",
+      "test-input-type": "object-array",
+      "test-input-source": "external",
+      "permissibleValueRange": "na",
+      "child-test-inputs": [
+        {
+          "test-input-name": "ruleHeader",
+          "test-input-type": "string",
+          "test-input-source": "external",
+          "permissibleValueRange": "10-15 kg"
+        },
+        {
+          "test-input-name": "ruleMinimum",
+          "test-input-type": "float",
+          "test-input-source": "external",
+          "permissibleValueRange": "10.1"
+        },
+        {
+          "test-input-name": "ruleMaximum",
+          "test-input-type": "float",
+          "test-input-source": "external",
+          "permissibleValueRange": "15.0"
+        },
+        {
+          "test-input-name": "ruleUnit",
+          "test-input-type": "string",
+          "test-input-source": "external",
+          "permissibleValueRange": "KG"
+        },
+        {
+          "test-input-name": "applicableValue",
+          "test-input-type": "float",
+          "test-input-source": "external",
+          "permissibleValueRange": "140.0"
+        }
+      ]
+    },
+    {
+      "test-input-name": "deliveryChargesRule",
+      "test-input-type": "object-array",
+      "test-input-source": "external",
+      "permissibleValueRange": "na",
+      "child-test-inputs": [
+        {
+          "test-input-name": "ruleHeader",
+          "test-input-type": "string",
+          "test-input-source": "external",
+          "permissibleValueRange": "15-20 kg"
+        },
+        {
+          "test-input-name": "ruleMinimum",
+          "test-input-type": "float",
+          "test-input-source": "external",
+          "permissibleValueRange": "15.1"
+        },
+        {
+          "test-input-name": "ruleMaximum",
+          "test-input-type": "float",
+          "test-input-source": "external",
+          "permissibleValueRange": "20.0"
+        },
+        {
+          "test-input-name": "ruleUnit",
+          "test-input-type": "string",
+          "test-input-source": "external",
+          "permissibleValueRange": "KG"
+        },
+        {
+          "test-input-name": "applicableValue",
+          "test-input-type": "float",
+          "test-input-source": "external",
+          "permissibleValueRange": "170.0"
+        }
+      ]
+    }
+
+  ]
+}
