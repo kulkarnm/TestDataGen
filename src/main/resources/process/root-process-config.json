@@ -1,0 +1,50 @@
+{
+  "processId": "root",
+  "processExecutionType": "one-time",
+  "executionCount": 1,
+  "multiCasting": false,
+  "childProcessElements": [
+    {
+      "processRef": "subscriber-initial-setup-process-config#subscriberInitialSetup"
+    },
+    {
+      "processRef": "business-initial-setup-process-config#businessInitialSetup"
+    },
+    {
+      "processRef": "create-products-process-config#create-products"
+    },
+    {
+      "processRef": "create-subscriber-forecast-process-config#create-subscriber-forecast"
+    },
+    {
+      "processRef": "create-subscription-forecast-process-config#create-subscription-forecast"
+    },
+    {
+      "processRef": "create-delivery-forecast-process-config#create-delivery-forecast"
+    },
+    {
+      "processRef": "set-benefits-schemes-process-config#set-benefits-schemes"
+    },
+    {
+      "processRef": "set-payment-schemes-process-config#set-payments-schemes"
+    },
+    {
+      "processRef": "set-opening-prices-process-config#set-opening-prices"
+    },
+    {
+      "processRef": "register-subscribers-process-config#register-subscribers"
+    },
+    {
+      "processRef": "register-subscriptions-process-config#register-subscriptions"
+    },
+    {
+      "processRef": "make-payments-process-config#make-payments"
+    },
+    {
+      "processRef": "dispatch-deliveries-process-config#dispatch-deliveries"
+    },
+    {
+      "processRef": "modify-subscriptions-process-config#modify-subscriptions"
+    }
+  ]
+}

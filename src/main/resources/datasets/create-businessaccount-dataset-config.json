@@ -7,8 +7,8 @@
     {
       "test-input-name": "merchantId",
       "test-input-type": "string",
-      "test-input-source": "external",
-      "permissibleValueRange": "merchant1"
+      "test-input-source": "internal",
+      "permissibleValueRange": "subscriptionRules#maximumPermissibleAmount"
     },
     {
       "test-input-name": "startDate",
