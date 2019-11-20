@@ -1,18 +1,14 @@
 {
-  "process-name": "subscriber-initial-setup",
-  "process-execution" : "one-time",
-  "execution-count" : 1,
-  "multi-casting" : true,
-  "process-elements": [
+  "processId": "subscriber-initial-setup",
+  "processExecutionType": "one-time",
+  "executionCount": 1,
+  "multiCasting": true,
+  "childProcessElements": [
     {
-      "process-name": "create-subscription-rules",
-      "process-execution" : "one-time",
-      "dataset-config": "subscription-rules-dataset-config#subscriptionRules"
+      "processRef": "create-subscription-rules-process.config#create-subscription-rules"
     },
     {
-      "process-name": "create-deliverycharges-rules",
-      "process-execution" : "one-time",
-      "dataset-config": "deliverycharges-rules-dataset-config#deliveryChargesRules"
+      "processRef": "create-deliverycharges-rules-process-config#create-deliverycharges-rules",
     }
   ]
 }

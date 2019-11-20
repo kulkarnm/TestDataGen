@@ -1,26 +1,17 @@
 {
-  "process-name": "root",
-  "process-execution": "one-time",
-  "execution-count" : 1,
-  "multi-casting": false,
-  "process-elements": [
+  "processId": "root",
+  "processExecutionType": "one-time",
+  "executionCount" : 1,
+  "multiCasting": false,
+  "childProcessElements": [
     {
-      "process-name": "subscriber-initial-setup-root",
-      "process-execution": "one-time",
-      "execution-count" : 1,
-      "dataset-config": "subscriber-initial-setup-process-config#subscriberInitialSetup"
+      "processRef": "subscriber-initial-setup-process-config#subscriberInitialSetup"
     },
     {
-      "process-name": "business-initial-setup-root",
-      "process-execution": "one-time",
-      "execution-count" : 1,
-      "dataset-config": "business-initial-setup-process-config#businessInitialSetup"
+      "processRef": "business-initial-setup-process-config#businessInitialSetup"
     },
     {
-      "process-name": "set-others-budget-root ",
-      "process-execution": "one-time",
-      "execution-count" : 1,
-      "dataset-config": "set-others-budget-dataset-config#setOthersBudget"
+      "processRef": "set-others-budget-dataset-config#setOthersBudget"
     }
   ]
 }

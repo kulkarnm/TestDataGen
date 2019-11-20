@@ -1,0 +1,5 @@
+{
+  "processId": "create-deliverycharges-rules",
+  "processExecutionType": "one-time",
+  "dataset-config": "deliverycharges-rules-dataset-config#deliveryChargesRules"
+}

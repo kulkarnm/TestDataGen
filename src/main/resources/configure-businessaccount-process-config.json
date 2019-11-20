@@ -1,0 +1,6 @@
+{
+  "processId": "config-business-account",
+  "processExecutionType" : "one-time",
+  "executionCount" : 1,
+  "dataset-config": "configure-businessaccount-dataset-config#configureBusinessAccount"
+}

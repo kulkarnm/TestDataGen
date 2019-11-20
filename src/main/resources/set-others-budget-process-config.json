@@ -1,0 +1,6 @@
+{
+  "processId": "set-others-budget",
+  "processExecutionType" : "one-time",
+  "executionCount" : 1,
+  "dataset-config": "set-others-budget-dataset-config#setOthersBudget"
+}

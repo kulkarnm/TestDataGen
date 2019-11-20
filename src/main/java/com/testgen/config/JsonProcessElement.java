@@ -1,14 +1,18 @@
-package com.testgen.userjourney;
+package com.testgen.config;
+
+import com.testgen.userjourney.DatasetConfig;
+import com.testgen.userjourney.ProcessElement;
+import com.testgen.userjourney.ProcessExecutionType;
 
 import java.util.List;
 
-public abstract class AbstractProcessElement implements ProcessElement {
+public abstract class JsonProcessElement implements ProcessElement {
     private String processId;
-    private ProcessExecutionType processExecutionType;
+    private String processExecutionType;
     private int executionCount;
     private boolean multiCasting;
     private DatasetConfig dataSetConfig;
-    private List<ProcessElement> childProcesses;
+    private List<ProcessElement> childProcessElements;
 
 
     public static class ProcessElementBuilder {
@@ -17,7 +21,7 @@ public abstract class AbstractProcessElement implements ProcessElement {
         private int executionCount;
         private boolean multiCasting;
         private DatasetConfig dataSetConfig;
-        private List<ProcessElement> childProcesses;
+        private List<ProcessElement> childProcessElements;
 
         public ProcessElementBuilder(String processId,ProcessExecutionType processExecutionType, int executionCount,boolean multiCasting){
             this.processId = processId;
@@ -31,8 +35,8 @@ public abstract class AbstractProcessElement implements ProcessElement {
             return this;
         }
 
-        public ProcessElementBuilder setChildProcesses(List<ProcessElement> childProcesses){
-            this.childProcesses = childProcesses;
+        public ProcessElementBuilder setChildProcessElements(List<ProcessElement> childProcessElements){
+            this.childProcessElements = childProcessElements;
             return this;
         }
     }
