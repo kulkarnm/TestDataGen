@@ -1,0 +1,6 @@
+{
+  "processId": "create-products",
+  "processExecutionType" : "recurring",
+  "executionCount" : 100,
+  "dataset-config": "create-products-dataset-config#createProducts"
+}

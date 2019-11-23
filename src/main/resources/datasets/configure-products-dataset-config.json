@@ -1,0 +1,77 @@
+{
+  "requestId": "configureProducts",
+  "requestParams": [
+    {
+      "paramName": "actualsAggregationPeriodForTargetForecast",
+      "paramType": "int",
+      "paramSource": "external",
+      "permissibleValueRange": "30"
+    },
+    {
+      "paramName": "targetChangeThresholdForPriceChange",
+      "paramType": "float",
+      "paramSource": "external",
+      "permissibleValueRange": "0.1"
+    },
+    {
+      "paramName": "isCrossPriceElasticityConsidered",
+      "paramType": "boolean",
+      "paramSource": "external",
+      "permissibleValueRange": "false"
+    },
+    {
+      "paramName": "isAdvertisingExpensesConsidered",
+      "paramType": "boolean",
+      "paramSource": "external",
+      "permissibleValueRange": "false"
+    },
+    {
+      "paramName": "pricingOptions",
+      "paramType": "enum",
+      "paramSource": "external",
+      "permissibleValueRange": "2"
+    },
+    {
+      "paramName": "pricingStrategyType",
+      "paramType": "enum",
+      "paramSource": "external",
+      "permissibleValueRange": "0"
+    },
+    {
+      "paramName": "demandCurvePeriod/Value",
+      "paramType": "float",
+      "paramSource": "external",
+      "permissibleValueRange": "2"
+    },
+    {
+      "paramName": "demandCurvePeriod/Unit",
+      "paramType": "enum",
+      "paramSource": "external",
+      "permissibleValueRange": "YEAR"
+    },
+    {
+      "paramName": "tentativePercentageChangeInProductDemand",
+      "paramType": "float",
+      "paramSource": "external",
+      "permissibleValueRange": "0.1"
+    },
+    {
+      "paramName" : "costHeaderTypes",
+      "paramType": "[enum]",
+      "paramSource": "external",
+      "permissibleValueRange": "[PURCHASE_PRICE_PER_UNIT,FIXED_EXPENSE_PER_UNIT,VARIABLE_EXPENSE_PER_UNIT,TAX_PER_UNIT]"
+    },
+    {
+      "paramName": "contingencyStockPercentage",
+      "paramType": "float",
+      "paramSource": "external",
+      "permissibleValueRange": "0.1"
+    }
+  ],
+  "responseParams" : [
+    {
+      "paramName": "productId",
+      "paramType": "String"
+    }
+  ]
+}

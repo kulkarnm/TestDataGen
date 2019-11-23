@@ -1,0 +1,77 @@
+{
+  "requestId": "createProducts",
+  "requestParams": [
+    {
+      "paramName": "productName",
+      "paramType": "string",
+      "paramSource": "external",
+      "permissibleValueRange": "[Product][^A-Za-z0-9]"
+    },
+    {
+      "paramName": "categoryId",
+      "paramType": "string",
+      "paramSource": "internal-process-output",
+      "permissibleValueRange": "#{categoryId}"
+    },
+    {
+      "paramName": "subCategoryId",
+      "paramType": "string",
+      "paramSource": "internal-process-output",
+      "permissibleValueRange": "#{subCategoryId}"
+    },
+    {
+      "paramName": "quantity",
+      "paramType": "int",
+      "paramSource": "external",
+      "permissibleValueRange": "100-500"
+    },
+    {
+      "paramName": "quantityUnit",
+      "paramType": "string",
+      "paramSource": "external",
+      "permissibleValueRange": "GM|ML|L|KG"
+    },
+    {
+      "paramName": "substitutes",
+      "paramType": "[string]",
+      "paramSource": "external",
+      "permissibleValueRange": "[0]"
+    },
+    {
+      "paramName": "complements",
+      "paramType": "[string]",
+      "paramSource": "external",
+      "permissibleValueRange": "[0]"
+    },
+    {
+      "paramName": "sensitiveTo",
+      "paramType": "int",
+      "paramSource": "external",
+      "permissibleValueRange": "0"
+    },
+    {
+      "paramName": "productPricingCategory",
+      "paramType": "enum",
+      "paramSource": "external",
+      "permissibleValueRange": "1"
+    },
+    {
+      "paramName": "purchasePrice",
+      "paramType": "float",
+      "paramSource": "external",
+      "permissibleValueRange": "50-250"
+    },
+    {
+      "paramName": "mrp",
+      "paramType": "float",
+      "paramSource": "external",
+      "permissibleValueRange": "50-250"
+    }
+  ],
+  "responseParams" : [
+    {
+      "paramName": "productId",
+      "paramType": "String"
+    }
+  ]
+}

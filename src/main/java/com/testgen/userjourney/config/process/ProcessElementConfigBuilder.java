@@ -1,9 +1,9 @@
-package com.testgen.userjourney;
+package com.testgen.userjourney.config.process;
 
-import com.testgen.dataset.DatasetConfig;
-import com.testgen.dataset.ParamSource;
-import com.testgen.dataset.RequestParam;
-import com.testgen.dataset.ResponseParam;
+import com.testgen.userjourney.config.dataset.DatasetConfig;
+import com.testgen.userjourney.config.dataset.ParamSource;
+import com.testgen.userjourney.config.dataset.RequestParam;
+import com.testgen.userjourney.config.dataset.ResponseParam;
 import com.testgen.parser.JsonParser;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -11,17 +11,17 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProcessElementBuilder {
+public class ProcessElementConfigBuilder {
 
     private String processId;
     private ProcessExecutionType processExecutionType;
     private int executionCount;
     private boolean multiCasting;
     private DatasetConfig dataSetConfig;
-    private List<ProcessElementBuilder> childProcesses;
+    private List<ProcessElementConfigBuilder> childProcesses;
     private JsonParser parser;
 
-    public ProcessElementBuilder() {
+    public ProcessElementConfigBuilder() {
         this.processId = "-1";
         this.processExecutionType = ProcessExecutionType.ONETIME;
         this.executionCount = 1;
@@ -42,12 +42,12 @@ public class ProcessElementBuilder {
         this.multiCasting = multiCasting;
     }
 
-    public ProcessElementBuilder dataSetConfig(DatasetConfig dataSetConfig) {
+    public ProcessElementConfigBuilder dataSetConfig(DatasetConfig dataSetConfig) {
         this.dataSetConfig = dataSetConfig;
         return this;
     }
 
-    public ProcessElementBuilder childProcessRefs(List<ProcessElementBuilder> processRefs) {
+    public ProcessElementConfigBuilder childProcessRefs(List<ProcessElementConfigBuilder> processRefs) {
         this.childProcesses = processRefs;
         return this;
     }
@@ -76,31 +76,31 @@ public class ProcessElementBuilder {
         return dataSetConfig;
     }
 
-    public List<ProcessElementBuilder> getChildProcesses() {
+    public List<ProcessElementConfigBuilder> getChildProcesses() {
         return childProcesses;
     }
 
-    public ProcessElement build() {
-        ProcessElementBuilder builder = buildProcessElement(parser.parse("process/root-process-config.json"));
+    public ProcessElementConfig build() {
+        ProcessElementConfigBuilder builder = buildProcessElement(parser.parse("process/root-process-config.json"));
         return builder.buildProcessElement();
     }
 
-    private ProcessElement buildProcessElement() {
-        AbstractProcessElement processElement = null;
-        List<ProcessElementBuilder> childProcesses = this.getChildProcesses();
+    private ProcessElementConfig buildProcessElement() {
+        AbstractProcessElementConfig processElement = null;
+        List<ProcessElementConfigBuilder> childProcesses = this.getChildProcesses();
         if (null != childProcesses && !childProcesses.isEmpty()) {
-            processElement = new CompositeProcess(this);
-            for (ProcessElementBuilder childElementBuilder : childProcesses) {
+            processElement = new CompositeProcessConfig(this);
+            for (ProcessElementConfigBuilder childElementBuilder : childProcesses) {
                 processElement.addToProcessElements(childElementBuilder.build());
             }
         } else {
-            processElement = new LeafProcessElement(this);
+            processElement = new LeafProcessElementConfig(this);
         }
         return processElement;
     }
 
-    private ProcessElementBuilder buildProcessElement(JSONObject jsonObject) {
-        ProcessElementBuilder builder = new ProcessElementBuilder();
+    private ProcessElementConfigBuilder buildProcessElement(JSONObject jsonObject) {
+        ProcessElementConfigBuilder builder = new ProcessElementConfigBuilder();
         if (jsonObject.has("processId")) {
             String processId = jsonObject.getString("processId");
             builder.processId(processId);
@@ -203,8 +203,8 @@ public class ProcessElementBuilder {
     }
 
     public static void main(String[] args) {
-        ProcessElementBuilder builder = new ProcessElementBuilder();
-        ProcessElement processElement = builder.build();
+        ProcessElementConfigBuilder builder = new ProcessElementConfigBuilder();
+        ProcessElementConfig processElementConfig = builder.build();
     }
 }
 

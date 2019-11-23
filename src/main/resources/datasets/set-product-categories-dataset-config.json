@@ -1,0 +1,29 @@
+{
+  "requestId": "setProductCategories",
+  "requestParams": [
+    {
+      "paramName": "categoryName",
+      "paramType": "string",
+      "paramSource": "external",
+      "permissibleValueRange": "[category][^A-Za-z0-9]"
+    },
+    {
+      "paramName": "description",
+      "paramType": "string",
+      "paramSource": "external",
+      "permissibleValueRange": "[^A-Za-z0-9]"
+    },
+    {
+      "paramName": "parentCategoryId",
+      "paramType": "string",
+      "paramSource": "external",
+      "permissibleValueRange": "#(categoryId)"
+    }
+  ],
+  "responseParams" : [
+    {
+      "paramName": "id",
+      "paramType": "String"
+    }
+  ]
+}

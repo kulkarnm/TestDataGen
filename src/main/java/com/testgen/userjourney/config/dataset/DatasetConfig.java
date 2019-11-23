@@ -1,4 +1,4 @@
-package com.testgen.dataset;
+package com.testgen.userjourney.config.dataset;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,0 +1,6 @@
+{
+  "processId": "define-product-forecasts",
+  "processExecutionType" : "one-time",
+  "executionCount" : 1,
+  "dataset-config": "define-product-forecasts-dataset-config#defineProductForecasts"
+}

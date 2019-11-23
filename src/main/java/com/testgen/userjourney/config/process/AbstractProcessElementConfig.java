@@ -1,22 +1,22 @@
-package com.testgen.userjourney;
+package com.testgen.userjourney.config.process;
 
-import com.testgen.dataset.DatasetConfig;
+import com.testgen.userjourney.config.dataset.DatasetConfig;
 
 import java.util.List;
 
-public abstract class AbstractProcessElement implements ProcessElement {
+public abstract class AbstractProcessElementConfig implements ProcessElementConfig {
     private String processId;
     private ProcessExecutionType processExecutionType;
     private int executionCount;
     private boolean multiCasting;
     private DatasetConfig dataSetConfig;
-    private List<ProcessElement> childProcesses;
+    private List<ProcessElementConfig> childProcesses;
 
-    public AbstractProcessElement(String processId) {
+    public AbstractProcessElementConfig(String processId) {
         this.processId = processId;
     }
 
-    public AbstractProcessElement(String processId, ProcessExecutionType processExecutionType, int executionCount, boolean multiCasting, DatasetConfig dataSetConfig) {
+    public AbstractProcessElementConfig(String processId, ProcessExecutionType processExecutionType, int executionCount, boolean multiCasting, DatasetConfig dataSetConfig) {
         this.processId = processId;
         this.processExecutionType = processExecutionType;
         this.executionCount = executionCount;
@@ -65,15 +65,15 @@ public abstract class AbstractProcessElement implements ProcessElement {
         this.dataSetConfig = dataSetConfig;
     }
 
-    public List<ProcessElement> getChildProcesses() {
+    public List<ProcessElementConfig> getChildProcesses() {
         return childProcesses;
     }
 
-    private void setChildProcesses(List<ProcessElement> childProcesses) {
+    private void setChildProcesses(List<ProcessElementConfig> childProcesses) {
         this.childProcesses = childProcesses;
     }
 
-    public void addToProcessElements(ProcessElement processElement){
-        this.childProcesses.add(processElement);
+    public void addToProcessElements(ProcessElementConfig processElementConfig){
+        this.childProcesses.add(processElementConfig);
     }
 }

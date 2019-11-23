@@ -1,0 +1,17 @@
+{
+  "processId": "define-products",
+  "processExecutionType": "recurring",
+  "executionCount": 100,
+  "multiCasting": false,
+  "childProcessElements": [
+    {
+      "processRef": "create-products-process-config#create-products"
+    },
+    {
+      "processRef": "configure-products-process-config#configure-products"
+    },
+    {
+      "processRef": "define-products-forecasts-process-config#define-product-forecasts"
+    }
+  ]
+}

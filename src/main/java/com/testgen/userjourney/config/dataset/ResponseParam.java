@@ -1,4 +1,4 @@
-package com.testgen.dataset;
+package com.testgen.userjourney.config.dataset;
 
 public class ResponseParam {
     private String paramName;
