@@ -1,38 +1,42 @@
 {
-  "test-input-name": "configureBusinessAccount",
-  "test-input-type": "request",
-  "test-input-source": "external",
-  "permissibleValueRange": "na",
-  "child-test-inputs": [
+  "requestId": "configureBusinessAccount",
+  "requestParams": [
     {
-      "test-input-name": "merchantId",
-      "test-input-type": "string",
-      "test-input-source": "external",
+      "paramName": "merchantId",
+      "paramType": "string",
+      "paramSource": "external",
       "permissibleValueRange": "merchant1"
     },
     {
-      "test-input-name": "budgetAdjustmentOptions",
-      "test-input-type": "enum",
-      "test-input-source": "external",
+      "paramName": "budgetAdjustmentOptions",
+      "paramType": "enum",
+      "paramSource": "external",
       "permissibleValueRange": "ACCEPT_AUTOMATED_BUDGET_ADJUSTMENT"
     },
     {
-      "test-input-name": "startDateOfFinancialYear",
-      "test-input-type": "date",
-      "test-input-source": "external",
+      "paramName": "startDateOfFinancialYear",
+      "paramType": "date",
+      "paramSource": "external",
       "permissibleValueRange": "#(businessAccountStartDateFormatted)"
     },
     {
-      "test-input-name": "endDateOfFinancialYear",
-      "test-input-type": "date",
-      "test-input-source": "external",
+      "paramName": "endDateOfFinancialYear",
+      "paramType": "date",
+      "paramSource": "external",
       "permissibleValueRange": "#(businessAccountEndDateFormatted)"
     },
     {
-      "test-input-name": "taxAsPercentageOfAnnualRevenue",
-      "test-input-type": "float",
-      "test-input-source": "external",
+      "paramName": "taxAsPercentageOfAnnualRevenue",
+      "paramType": "float",
+      "paramSource": "external",
       "permissibleValueRange": "0.2"
     }
+  ],
+  "responseParams" : [
+    {
+      "paramName": "id",
+      "paramType": "String"
+    }
   ]
+
 }

@@ -5,10 +5,10 @@
   "multiCasting": true,
   "childProcessElements": [
     {
-      "processRef": "create-subscription-rules-process.config#create-subscription-rules"
+      "processRef": "create-subscription-rules-process-config#create-subscription-rules"
     },
     {
-      "processRef": "create-deliverycharges-rules-process-config#create-deliverycharges-rules",
+      "processRef": "create-deliverycharges-rules-process-config#create-deliverycharges-rules"
     }
   ]
 }

@@ -1,32 +1,35 @@
 {
-  "test-input-name": "setOthersBudget",
-  "test-input-type": "request",
-  "test-input-source": "external",
-  "permissibleValueRange": "na",
-  "child-test-inputs": [
+  "requestId": "setOthersBudget",
+  "requestParams": [
     {
-      "test-input-name": "merchantId",
-      "test-input-type": "string",
-      "test-input-source": "external",
+      "paramName": "merchantId",
+      "paramType": "string",
+      "paramSource": "external",
       "permissibleValueRange": "merchant1"
     },
     {
-      "test-input-name": "startDate",
-      "test-input-type": "date",
-      "test-input-source": "external",
+      "paramName": "startDate",
+      "paramType": "date",
+      "paramSource": "external",
       "permissibleValueRange": "#(businessAccountStartDateFormatted)"
     },
     {
-      "test-input-name": "endDate",
-      "test-input-type": "date",
-      "test-input-source": "external",
+      "paramName": "endDate",
+      "paramType": "date",
+      "paramSource": "external",
       "permissibleValueRange": "#(businessAccountEndDateFormatted)"
     },
     {
-      "test-input-name": "provisionForOtherCost",
-      "test-input-type": "float",
-      "test-input-source": "external",
+      "paramName": "provisionForOtherCost",
+      "paramType": "float",
+      "paramSource": "external",
       "permissibleValueRange": "1200000000.00"
+    }
+  ],
+  "responseParams" : [
+    {
+      "paramName": "businessAccountId",
+      "paramType": "String"
     }
   ]
 }
