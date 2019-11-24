@@ -1,7 +1,8 @@
 package com.testgen.userjourney.config.process;
 
-import com.testgen.userjourney.config.dataset.DatasetConfig;
+import com.testgen.userjourney.config.dataset.RequestConfig;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class AbstractProcessElementConfig implements ProcessElementConfig {
@@ -9,20 +10,20 @@ public abstract class AbstractProcessElementConfig implements ProcessElementConf
     private ProcessExecutionType processExecutionType;
     private int executionCount;
     private boolean multiCasting;
-    private DatasetConfig dataSetConfig;
+    private RequestConfig dataSetConfig;
     private List<ProcessElementConfig> childProcesses;
 
     public AbstractProcessElementConfig(String processId) {
         this.processId = processId;
     }
 
-    public AbstractProcessElementConfig(String processId, ProcessExecutionType processExecutionType, int executionCount, boolean multiCasting, DatasetConfig dataSetConfig) {
+    public AbstractProcessElementConfig(String processId, ProcessExecutionType processExecutionType, int executionCount, boolean multiCasting, RequestConfig dataSetConfig) {
         this.processId = processId;
         this.processExecutionType = processExecutionType;
         this.executionCount = executionCount;
         this.multiCasting = multiCasting;
         this.dataSetConfig = dataSetConfig;
-        this.childProcesses = childProcesses;
+        this.childProcesses = new ArrayList<>();
     }
 
     public String getProcessId() {
@@ -57,11 +58,11 @@ public abstract class AbstractProcessElementConfig implements ProcessElementConf
         this.multiCasting = multiCasting;
     }
 
-    public DatasetConfig getDataSetConfig() {
+    public RequestConfig getDataSetConfig() {
         return dataSetConfig;
     }
 
-    private void setDataSetConfig(DatasetConfig dataSetConfig) {
+    private void setDataSetConfig(RequestConfig dataSetConfig) {
         this.dataSetConfig = dataSetConfig;
     }
 

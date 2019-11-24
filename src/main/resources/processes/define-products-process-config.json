@@ -11,7 +11,7 @@
       "processRef": "configure-products-process-config#configure-products"
     },
     {
-      "processRef": "define-products-forecasts-process-config#define-product-forecasts"
+      "processRef": "define-product-forecasts-process-config#define-product-forecasts"
     }
   ]
 }

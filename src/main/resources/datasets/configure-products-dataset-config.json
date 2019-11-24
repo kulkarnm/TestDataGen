@@ -61,10 +61,26 @@
       "paramSource": "external-const",
       "repeat" : 1,
       "startingWith": [
-        "PURCHASE_PRICE_PER_UNIT",
-        "FIXED_EXPENSE_PER_UNIT",
-        "VARIABLE_EXPENSE_PER_UNIT",
-        "TAX_PER_UNIT"
+        {
+          "paramName":"PURCHASE_PRICE_PER_UNIT",
+          "paramType": "enum",
+          "paramSource": "external-const"
+        },
+        {
+          "paramName":"FIXED_EXPENSE_PER_UNIT",
+          "paramType": "enum",
+          "paramSource": "external-const"
+        } ,
+        {
+          "paramName":"VARIABLE_EXPENSE_PER_UNIT",
+          "paramType": "enum",
+          "paramSource": "external-const"
+        } ,
+        {
+          "paramName":"TAX_PER_UNIT",
+          "paramType": "enum",
+          "paramSource": "external-const"
+        }
       ]
     },
     {

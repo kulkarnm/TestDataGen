@@ -50,7 +50,10 @@
       "startingWith": "0.1"
     },
     {
-      "subscriptionValueRange": [
+      "paramName":"subscriptionValueRanges",
+      "paramType":"[object]",
+      "paramSource":"external-const",
+      "startingWith":[
         {
           "paramName": "subscriptionValueRange",
           "paramType": "[object]",
@@ -112,7 +115,7 @@
           "paramName": "subscriptionValueRange",
           "paramType": "[object]",
           "paramSource": "external-const",
-          "requestParams": [
+          "startingWith": [
             {
               "paramName": "minValue",
               "paramType": "int",

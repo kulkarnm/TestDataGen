@@ -7,19 +7,20 @@ public class RequestParam {
     private String paramName;
     private String paramType;
     private ParamSource paramSource;
+    private String startingWithStr;
     private String permissibleValueRange;
-    private List<RequestParam> childRequestPrams;
+    private List<RequestParam> startingWith;
     private int repeatChildren;
     private String interRelation;
 
-    public RequestParam(String paramName, String paramType, ParamSource paramSource, String permissibleValueRange) {
+    public RequestParam(String paramName, String paramType, ParamSource paramSource) {
         this.paramName = paramName;
         this.paramType = paramType;
         this.paramSource = paramSource;
+    }
+
+    public void setPermissibleValueRange(String permissibleValueRange) {
         this.permissibleValueRange = permissibleValueRange;
-        this.childRequestPrams=null;
-        this.repeatChildren=0;
-        this.interRelation = null;
     }
 
     public String getParamName() {
@@ -46,8 +47,8 @@ public class RequestParam {
         this.interRelation = interRelation;
     }
 
-    public List<RequestParam> getChildRequestPrams() {
-        return childRequestPrams;
+    public void setStartingWithStr(String startingWithStr) {
+        this.startingWithStr = startingWithStr;
     }
 
     public int getRepeatChildren() {
@@ -59,9 +60,9 @@ public class RequestParam {
     }
 
     public void addToChildRequestParams(RequestParam requestParam){
-        if(null == childRequestPrams){
-            this.childRequestPrams= new ArrayList<>();
+        if(null == startingWith){
+            this.startingWith= new ArrayList<>();
         }
-        this.childRequestPrams.add(requestParam);
+        this.startingWith.add(requestParam);
     }
 }

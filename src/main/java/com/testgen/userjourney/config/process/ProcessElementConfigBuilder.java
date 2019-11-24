@@ -1,9 +1,5 @@
 package com.testgen.userjourney.config.process;
 
-import com.testgen.userjourney.config.dataset.DatasetConfig;
-import com.testgen.userjourney.config.dataset.ParamSource;
-import com.testgen.userjourney.config.dataset.RequestParam;
-import com.testgen.userjourney.config.dataset.ResponseParam;
 import com.testgen.parser.JsonParser;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -17,7 +13,7 @@ public class ProcessElementConfigBuilder {
     private ProcessExecutionType processExecutionType;
     private int executionCount;
     private boolean multiCasting;
-    private DatasetConfig dataSetConfig;
+    private RequestConfigBuilder requestConfigBuilder;
     private List<ProcessElementConfigBuilder> childProcesses;
     private JsonParser parser;
 
@@ -30,20 +26,23 @@ public class ProcessElementConfigBuilder {
         this.parser = new JsonParser();
     }
 
-    public void processExecutionType(ProcessExecutionType processExecutionType) {
+    public ProcessElementConfigBuilder processExecutionType(ProcessExecutionType processExecutionType) {
         this.processExecutionType = processExecutionType;
+        return this;
     }
 
-    public void executionCount(int executionCount) {
+    public ProcessElementConfigBuilder executionCount(int executionCount) {
         this.executionCount = executionCount;
+        return this;
     }
 
-    public void multiCasting(boolean multiCasting) {
+    public ProcessElementConfigBuilder multiCasting(boolean multiCasting) {
         this.multiCasting = multiCasting;
+        return this;
     }
 
-    public ProcessElementConfigBuilder dataSetConfig(DatasetConfig dataSetConfig) {
-        this.dataSetConfig = dataSetConfig;
+    public ProcessElementConfigBuilder dataSetConfig(RequestConfigBuilder requestConfigBuilder) {
+        this.requestConfigBuilder = requestConfigBuilder;
         return this;
     }
 
@@ -52,8 +51,9 @@ public class ProcessElementConfigBuilder {
         return this;
     }
 
-    public void processId(String processId) {
+    public ProcessElementConfigBuilder processId(String processId) {
         this.processId = processId;
+        return this;
     }
 
     public String getProcessId() {
@@ -72,8 +72,8 @@ public class ProcessElementConfigBuilder {
         return multiCasting;
     }
 
-    public DatasetConfig getDataSetConfig() {
-        return dataSetConfig;
+    public RequestConfigBuilder getRequestConfigBuilder() {
+        return this.requestConfigBuilder;
     }
 
     public List<ProcessElementConfigBuilder> getChildProcesses() {
@@ -81,7 +81,7 @@ public class ProcessElementConfigBuilder {
     }
 
     public ProcessElementConfig build() {
-        ProcessElementConfigBuilder builder = buildProcessElement(parser.parse("process/root-process-config.json"));
+        ProcessElementConfigBuilder builder = buildProcessElement(parser.parse("processes/root-process-config.json"));
         return builder.buildProcessElement();
     }
 
@@ -91,7 +91,7 @@ public class ProcessElementConfigBuilder {
         if (null != childProcesses && !childProcesses.isEmpty()) {
             processElement = new CompositeProcessConfig(this);
             for (ProcessElementConfigBuilder childElementBuilder : childProcesses) {
-                processElement.addToProcessElements(childElementBuilder.build());
+                processElement.addToProcessElements(childElementBuilder.buildProcessElement());
             }
         } else {
             processElement = new LeafProcessElementConfig(this);
@@ -100,10 +100,9 @@ public class ProcessElementConfigBuilder {
     }
 
     private ProcessElementConfigBuilder buildProcessElement(JSONObject jsonObject) {
-        ProcessElementConfigBuilder builder = new ProcessElementConfigBuilder();
         if (jsonObject.has("processId")) {
             String processId = jsonObject.getString("processId");
-            builder.processId(processId);
+            this.processId(processId);
         } else {
             throw new RuntimeException("processId is missing");
         }
@@ -112,99 +111,51 @@ public class ProcessElementConfigBuilder {
             String processExecutionTypeStr = jsonObject.getString("processExecutionType");
             switch (processExecutionTypeStr) {
                 case "one-time":
-                    builder.processExecutionType(ProcessExecutionType.ONETIME);
+                    this.processExecutionType(ProcessExecutionType.ONETIME);
                     break;
                 case "recurring":
-                    builder.processExecutionType(ProcessExecutionType.RECURRING);
+                    this.processExecutionType(ProcessExecutionType.RECURRING);
             }
         }
         int executionCount = 1;
         if (jsonObject.has("executionCount")) {
             executionCount = jsonObject.getInt("executionCount");
         }
-        builder.executionCount(executionCount);
+        this.executionCount(executionCount);
         boolean multiCasting = false;
         if (jsonObject.has("multiCasting")) {
             multiCasting = jsonObject.getBoolean("multiCasting");
         }
-        builder.multiCasting(multiCasting);
+        this.multiCasting(multiCasting);
         if (jsonObject.has("childProcessElements")) {
             JSONArray childProcessElementsJsons = jsonObject.getJSONArray("childProcessElements");
             if (null != childProcessElementsJsons && !childProcessElementsJsons.isEmpty()) {
                 for (int i = 0; i < childProcessElementsJsons.length(); i++) {
                     String childProcessRef = childProcessElementsJsons.getJSONObject(i).getString("processRef");
-                    System.out.println("childProcessRef: " + childProcessRef);
-                    String childProcessDefFileName = "process/" + childProcessRef.substring(0, childProcessRef.indexOf("#")) + ".json";
-                    this.childProcesses.add(buildProcessElement(parser.parse(childProcessDefFileName)));
+                    //System.out.println("childProcessRef: " + childProcessRef);
+                    String childProcessDefFileName = "processes/" + childProcessRef.substring(0, childProcessRef.indexOf("#")) + ".json";
+                    System.out.println("childProcessFileName: " + childProcessDefFileName);
+                    ProcessElementConfigBuilder childBuilder = new ProcessElementConfigBuilder();
+                    this.childProcesses.add(childBuilder.buildProcessElement(parser.parse(childProcessDefFileName)));
                 }
             }
         }
 
         if (jsonObject.has("dataset-config")) {
             String datasetConfigLocation = jsonObject.getString("dataset-config");
-            String datasetConfigFileName = "dataset/" + datasetConfigLocation.substring(0, datasetConfigLocation.indexOf("#")) + ".json";
+            String datasetConfigFileName = "datasets/" + datasetConfigLocation.substring(0, datasetConfigLocation.indexOf("#")) + ".json";
             String datasetElementName = datasetConfigLocation.substring(datasetConfigLocation.indexOf("#") + 1);
-            this.dataSetConfig = buildDatasetConfig(parser.parse(datasetConfigFileName), datasetElementName);
+            RequestConfigBuilder requestConfigBuilder = new RequestConfigBuilder();
+            System.out.println("datasetConfigFileName: " + datasetConfigFileName);
+            this.requestConfigBuilder = requestConfigBuilder.buildRequestConfigBuilder(parser.parse(datasetConfigFileName), datasetElementName);
         } else {
             //for now do nothing.. some writes may not have requests and responses
         }
-        return builder;
+        return this;
     }
 
-    private DatasetConfig buildDatasetConfig(JSONObject jsonObject, String datasetElementName) {
-        JSONArray array = new JSONArray(jsonObject);
-        JSONArray jsonPersonData = array.getJSONArray(1);
-        for (int i = 0; i < jsonPersonData.length(); i++) {
-            JSONObject item = jsonPersonData.getJSONObject(i);
-            if (item.has("requestId")) {
-                String requestId = item.getString("requestId");
-                if (datasetElementName.equals(requestId)) {
-                    DatasetConfig datasetConfig = new DatasetConfig(requestId);
-                    JSONArray childParamJsons = item.getJSONArray("requestParams");
-                    for (int j = 0; j < childParamJsons.length(); j++) {
-                        JSONObject param = childParamJsons.getJSONObject(i);
-                        datasetConfig.addToRequestParams(buildRequestParam(param));
-                    }
-                    JSONArray childResponseParamJsons = item.getJSONArray("responseParams");
-                    for (int k = 0; k < childResponseParamJsons.length(); k++) {
-                        JSONObject responsePram = childResponseParamJsons.getJSONObject(i);
-                        datasetConfig.addToResponseParams(buildResponseParam(responsePram));
-                    }
-                }
-                return dataSetConfig;
-            } else {
-                throw new RuntimeException("requestId is missing");
-            }
-        }
-        return null;
-    }
 
-    private RequestParam buildRequestParam(JSONObject param) {
-        String paramName = param.getString("paramName");
-        String paramType = param.getString("paramType");
-        String paramSource = param.getString("paramSource");
-        ParamSource paramSourceEnum = null;
-        switch (paramSource) {
-            case "external":
-                paramSourceEnum = ParamSource.EXTERNAL;
-                break;
-            case "internal-process-output":
-                paramSourceEnum = ParamSource.INTERNAL_PROCESS_OUTPUT;
-        }
-        String permissibleValueRange = param.getString("permissibleValueRange");
-        RequestParam requestParam = new RequestParam(paramName, paramType, paramSourceEnum, permissibleValueRange);
-        return requestParam;
-    }
 
-    private ResponseParam buildResponseParam(JSONObject param) {
-        String paramName = param.getString("paramName");
-        String paramType = param.getString("paramType");
-        return new ResponseParam(paramName, paramType);
-    }
 
-    public static void main(String[] args) {
-        ProcessElementConfigBuilder builder = new ProcessElementConfigBuilder();
-        ProcessElementConfig processElementConfig = builder.build();
-    }
 }
 

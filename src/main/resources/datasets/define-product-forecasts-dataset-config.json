@@ -54,5 +54,11 @@
         }
       ]
     }
+  ],
+  "responseParams" : [
+    {
+      "paramName": "productId",
+      "paramType": "String"
+    }
   ]
 }
