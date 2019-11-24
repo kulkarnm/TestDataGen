@@ -4,31 +4,31 @@
     {
       "paramName": "merchantId",
       "paramType": "string",
-      "paramSource": "external",
-      "permissibleValueRange": "merchant1"
+      "paramSource": "external-const",
+      "startingWith": "merchant1"
     },
     {
       "paramName": "budgetAdjustmentOptions",
       "paramType": "enum",
-      "paramSource": "external",
-      "permissibleValueRange": "ACCEPT_AUTOMATED_BUDGET_ADJUSTMENT"
+      "paramSource": "external-const",
+      "startingWith": "ACCEPT_AUTOMATED_BUDGET_ADJUSTMENT"
     },
     {
       "paramName": "startDateOfFinancialYear",
       "paramType": "date",
-      "paramSource": "external",
-      "permissibleValueRange": "#(businessAccountStartDateFormatted)"
+      "paramSource": "external-const",
+      "startingWith": "#(businessAccountStartDateFormatted)"
     },
     {
       "paramName": "endDateOfFinancialYear",
       "paramType": "date",
-      "paramSource": "external",
-      "permissibleValueRange": "#(businessAccountEndDateFormatted)"
+      "paramSource": "external-const",
+      "startingWith": "#(businessAccountEndDateFormatted)"
     },
     {
       "paramName": "taxAsPercentageOfAnnualRevenue",
       "paramType": "float",
-      "paramSource": "external",
+      "paramSource": "external-const",
       "permissibleValueRange": "0.2"
     }
   ],

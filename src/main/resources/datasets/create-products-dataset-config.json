@@ -11,13 +11,13 @@
       "paramName": "categoryId",
       "paramType": "string",
       "paramSource": "internal-process-output",
-      "permissibleValueRange": "#{categoryId}"
+      "startingWith": "#{categoryId}"
     },
     {
       "paramName": "subCategoryId",
       "paramType": "string",
       "paramSource": "internal-process-output",
-      "permissibleValueRange": "#{subCategoryId}"
+      "startingWith": "#{subCategoryId}"
     },
     {
       "paramName": "quantity",
@@ -34,26 +34,26 @@
     {
       "paramName": "substitutes",
       "paramType": "[string]",
-      "paramSource": "external",
-      "permissibleValueRange": "[0]"
+      "paramSource": "external-const",
+      "startingWith": "[0]"
     },
     {
       "paramName": "complements",
       "paramType": "[string]",
-      "paramSource": "external",
-      "permissibleValueRange": "[0]"
+      "paramSource": "external-const",
+      "startingWith": "[0]"
     },
     {
       "paramName": "sensitiveTo",
       "paramType": "int",
-      "paramSource": "external",
-      "permissibleValueRange": "0"
+      "paramSource": "external-const",
+      "startingWith": "0"
     },
     {
       "paramName": "productPricingCategory",
       "paramType": "enum",
-      "paramSource": "external",
-      "permissibleValueRange": "1"
+      "paramSource": "external-const",
+      "startingWith": "1"
     },
     {
       "paramName": "purchasePrice",
@@ -64,8 +64,8 @@
     {
       "paramName": "mrp",
       "paramType": "float",
-      "paramSource": "external",
-      "permissibleValueRange": "50-250"
+      "paramSource": "internal-process-output",
+      "relation": "n1= purchasePricePerUnit + 0.2*purchasePricePerUnit"
     }
   ],
   "responseParams" : [

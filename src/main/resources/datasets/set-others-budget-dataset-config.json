@@ -4,26 +4,26 @@
     {
       "paramName": "merchantId",
       "paramType": "string",
-      "paramSource": "external",
-      "permissibleValueRange": "merchant1"
+      "paramSource": "external-const",
+      "startingWith": "merchant1"
     },
     {
       "paramName": "startDate",
       "paramType": "date",
-      "paramSource": "external",
-      "permissibleValueRange": "#(businessAccountStartDateFormatted)"
+      "paramSource": "internal-process-output",
+      "startingWith": "#(businessAccountStartDateFormatted)"
     },
     {
       "paramName": "endDate",
       "paramType": "date",
-      "paramSource": "external",
-      "permissibleValueRange": "#(businessAccountEndDateFormatted)"
+      "paramSource": "internal-process-output",
+      "startingWith": "#(businessAccountEndDateFormatted)"
     },
     {
       "paramName": "provisionForOtherCost",
       "paramType": "float",
-      "paramSource": "external",
-      "permissibleValueRange": "1200000000.00"
+      "paramSource": "external-const",
+      "startingWith": "1200000000.00"
     }
   ],
   "responseParams" : [

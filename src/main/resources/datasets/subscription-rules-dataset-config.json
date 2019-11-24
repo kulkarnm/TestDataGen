@@ -4,274 +4,270 @@
     {
       "paramName": "maximumPermissibleAmount",
       "paramType": "int",
-      "paramSource": "external",
-      "permissibleValueRange": "50000"
+      "paramSource": "external-const",
+      "startingWith": "50000"
     },
     {
       "paramName": "minimumAmountForDiscountEligibility",
       "paramType": "int",
-      "paramSource": "external",
-      "permissibleValueRange": "20000"
+      "paramSource": "external-const",
+      "startingWith": "20000"
     },
     {
       "paramName": "maximumPermissibleDiscount",
       "paramType": "float",
-      "paramSource": "external",
-      "permissibleValueRange": "0.2"
+      "paramSource": "external-const",
+      "startingWith": "0.2"
     },
     {
       "paramName": "maximumPermissibleDiscountUnit",
       "paramType": "int",
-      "paramSource": "external",
-      "permissibleValueRange": "1"
+      "paramSource": "external-const",
+      "startingWith": "1"
     },
     {
       "paramName": "minimumAmountEligibleForFreeShipping",
       "paramType": "int",
-      "paramSource": "external",
-      "permissibleValueRange": "1000"
+      "paramSource": "external-const",
+      "startingWith": "1000"
     },
     {
       "paramName": "diffBetweenDeliveryPreparationAndDispatchDate",
       "paramType": "int",
-      "paramSource": "external",
-      "permissibleValueRange": "2"
+      "paramSource": "external-const",
+      "startingWith": "2"
     },
     {
       "paramName": "actualsAggregationPeriodForTargetForecast",
       "paramType": "int",
-      "paramSource": "external",
-      "permissibleValueRange": "30"
+      "paramSource": "external-const",
+      "startingWith": "30"
     },
     {
       "paramName": "contingencyStockPercentage",
       "paramType": "float",
-      "paramSource": "external",
-      "permissibleValueRange": "0.1"
+      "paramSource": "external-const",
+      "startingWith": "0.1"
     },
     {
-      "paramName": "subscriptionValueRanges",
-      "paramType": "object-array",
-      "paramSource": "external",
-      "requestParams": [
+      "subscriptionValueRange": [
         {
           "paramName": "subscriptionValueRange",
-          "paramType": "object-array",
-          "paramSource": "external",
-          "requestParams": [
+          "paramType": "[object]",
+          "paramSource": "external-const",
+          "startingWith": [
             {
               "paramName": "minValue",
               "paramType": "int",
-              "paramSource": "external",
-              "permissibleValueRange": "0"
+              "paramSource": "external-const",
+              "startingWith": "0"
             },
             {
               "paramName": "maxValue",
               "paramType": "int",
-              "paramSource": "external",
-              "permissibleValueRange": "4999"
+              "paramSource": "external-const",
+              "startingWith": "4999"
             }
           ]
         },
         {
           "paramName": "subscriptionValueRange",
-          "paramType": "object-array",
-          "paramSource": "external",
-          "requestParams": [
+          "paramType": "[object]",
+          "paramSource": "external-const",
+          "startingWith": [
             {
               "paramName": "minValue",
               "paramType": "int",
-              "paramSource": "external",
-              "permissibleValueRange": "5000"
+              "paramSource": "external-const",
+              "startingWith": "5000"
             },
             {
               "paramName": "maxValue",
               "paramType": "int",
-              "paramSource": "external",
-              "permissibleValueRange": "8000"
+              "paramSource": "external-const",
+              "startingWith": "8000"
             }
           ]
         },
         {
           "paramName": "subscriptionValueRange",
-          "paramType": "object-array",
-          "paramSource": "external",
-          "requestParams": [
+          "paramType": "[object]",
+          "paramSource": "external-const",
+          "startingWith": [
             {
               "paramName": "minValue",
               "paramType": "int",
-              "paramSource": "external",
-              "permissibleValueRange": "8001"
+              "paramSource": "external-const",
+              "startingWith": "8001"
             },
             {
               "paramName": "maxValue",
               "paramType": "int",
-              "paramSource": "external",
-              "permissibleValueRange": "10000"
+              "paramSource": "external-const",
+              "startingWith": "10000"
             }
           ]
         },
         {
           "paramName": "subscriptionValueRange",
-          "paramType": "object-array",
-          "paramSource": "external",
+          "paramType": "[object]",
+          "paramSource": "external-const",
           "requestParams": [
             {
               "paramName": "minValue",
               "paramType": "int",
-              "paramSource": "external",
-              "permissibleValueRange": "10001"
+              "paramSource": "external-const",
+              "startingWith": "10001"
             },
             {
               "paramName": "maxValue",
               "paramType": "int",
-              "paramSource": "external",
-              "permissibleValueRange": "13000"
+              "paramSource": "external-const",
+              "startingWith": "13000"
             }
           ]
         },
         {
           "paramName": "subscriptionValueRange",
-          "paramType": "object-array",
-          "paramSource": "external",
-          "requestParams": [
+          "paramType": "[object]",
+          "paramSource": "external-const",
+          "startingWith": [
             {
               "paramName": "minValue",
               "paramType": "int",
-              "paramSource": "external",
-              "permissibleValueRange": "13001"
+              "paramSource": "external-const",
+              "startingWith": "13001"
             },
             {
               "paramName": "maxValue",
               "paramType": "int",
-              "paramSource": "external",
-              "permissibleValueRange": "18000"
+              "paramSource": "external-const",
+              "startingWith": "18000"
             }
           ]
         },
         {
           "paramName": "subscriptionValueRange",
-          "paramType": "object-array",
-          "paramSource": "external",
-          "requestParams": [
+          "paramType": "[object]",
+          "paramSource": "external-const",
+          "startingWith": [
             {
               "paramName": "minValue",
               "paramType": "int",
-              "paramSource": "external",
-              "permissibleValueRange": "18001"
+              "paramSource": "external-const",
+              "startingWith": "18001"
             },
             {
               "paramName": "maxValue",
               "paramType": "int",
-              "paramSource": "external",
-              "permissibleValueRange": "25000"
+              "paramSource": "external-const",
+              "startingWith": "25000"
             }
           ]
         },
         {
           "paramName": "subscriptionValueRange",
-          "paramType": "object-array",
-          "paramSource": "external",
-          "requestParams": [
+          "paramType": "[object]",
+          "paramSource": "external-const",
+          "startingWith": [
             {
               "paramName": "minValue",
               "paramType": "int",
-              "paramSource": "external",
-              "permissibleValueRange": "25001"
+              "paramSource": "external-const",
+              "startingWith": "25001"
             },
             {
               "paramName": "maxValue",
               "paramType": "int",
-              "paramSource": "external",
-              "permissibleValueRange": "30000"
+              "paramSource": "external-const",
+              "startingWith": "30000"
             }
           ]
         },
         {
           "paramName": "subscriptionValueRange",
-          "paramType": "object-array",
-          "paramSource": "external",
-          "requestParams": [
+          "paramType": "[object]",
+          "paramSource": "external-const",
+          "startingWith": [
             {
               "paramName": "minValue",
               "paramType": "int",
-              "paramSource": "external",
-              "permissibleValueRange": "30001"
+              "paramSource": "external-const",
+              "startingWith": "30001"
             },
             {
               "paramName": "maxValue",
               "paramType": "int",
-              "paramSource": "external",
-              "permissibleValueRange": "35000"
+              "paramSource": "external-const",
+              "startingWith": "35000"
             }
           ]
         },
         {
           "paramName": "subscriptionValueRange",
-          "paramType": "object-array",
-          "paramSource": "external",
-          "requestParams": [
+          "paramType": "[object]",
+          "paramSource": "external-const",
+          "startingWith": [
             {
               "paramName": "minValue",
               "paramType": "int",
-              "paramSource": "external",
-              "permissibleValueRange": "35001"
+              "paramSource": "external-const",
+              "startingWith": "35001"
             },
             {
               "paramName": "maxValue",
               "paramType": "int",
-              "paramSource": "external",
-              "permissibleValueRange": "40000"
+              "paramSource": "external-const",
+              "startingWith": "40000"
             }
           ]
         },
         {
           "paramName": "subscriptionValueRange",
-          "paramType": "object-array",
-          "paramSource": "external",
-          "requestParams": [
+          "paramType": "[object]",
+          "paramSource": "external-const",
+          "startingWith": [
             {
               "paramName": "minValue",
               "paramType": "int",
-              "paramSource": "external",
-              "permissibleValueRange": "40001"
+              "paramSource": "external-const",
+              "startingWith": "40001"
             },
             {
               "paramName": "maxValue",
               "paramType": "int",
-              "paramSource": "external",
-              "permissibleValueRange": "50000"
+              "paramSource": "external-const",
+              "startingWith": "50000"
             }
           ]
         },
         {
           "paramName": "subscriptionValueRange",
-          "paramType": "object-array",
-          "paramSource": "external",
-          "requestParams": [
+          "paramType": "[object]",
+          "paramSource": "external-const",
+          "startingWith": [
             {
               "paramName": "minValue",
               "paramType": "int",
-              "paramSource": "external",
-              "permissibleValueRange": "50001"
+              "paramSource": "external-const",
+              "startingWith": "50001"
             },
             {
               "paramName": "maxValue",
               "paramType": "int",
-              "paramSource": "external",
-              "permissibleValueRange": "-1"
+              "paramSource": "external-const",
+              "startingWith": "-1"
             }
           ]
         }
       ]
     }
   ],
-  "responseParams" : [
+  "responseParams": [
     {
       "paramName": "id",
       "paramType": "String"
     }
   ]
-
 }
 

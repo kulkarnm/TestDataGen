@@ -17,7 +17,7 @@
       "paramName": "parentCategoryId",
       "paramType": "string",
       "paramSource": "external",
-      "permissibleValueRange": "#(categoryId)"
+      "startingWith": "#(categoryId)"
     }
   ],
   "responseParams" : [

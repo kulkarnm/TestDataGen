@@ -3,229 +3,226 @@
   "requestParams": [
     {
       "paramName": "deliveryChargesRule",
-      "paramType": "object-array",
-      "paramSource": "external",
-      "permissibleValueRange": "na",
-      "requestParams": [
+      "paramType": "[object]",
+      "paramSource": "external-const",
+      "startingWith": [
         {
           "paramName": "ruleHeader",
           "paramType": "string",
-          "paramSource": "external",
-          "permissibleValueRange": "Less than 3 kg"
+          "paramSource": "external-const",
+          "startingWith": "Less than 3 kg"
         },
         {
           "paramName": "ruleMinimum",
           "paramType": "float",
-          "paramSource": "external",
-          "permissibleValueRange": "0.0"
+          "paramSource": "external-const",
+          "startingWith": "0.0"
         },
         {
           "paramName": "ruleMaximum",
           "paramType": "float",
-          "paramSource": "external",
-          "permissibleValueRange": "3.0"
+          "paramSource": "external-const",
+          "startingWith": "3.0"
         },
         {
           "paramName": "ruleUnit",
           "paramType": "string",
-          "paramSource": "external",
-          "permissibleValueRange": "KG"
+          "paramSource": "external-const",
+          "startingWith": "KG"
         },
         {
           "paramName": "applicableValue",
           "paramType": "float",
-          "paramSource": "external",
-          "permissibleValueRange": "40.0"
+          "paramSource": "external-const",
+          "startingWith": "40.0"
+        }
+      ]
+    },
+    {
+      "paramName": "deliveryChargesRule",
+      "paramType": "[object]",
+      "paramSource": "external-const",
+      "startingWith": [
+        {
+          "paramName": "ruleHeader",
+          "paramType": "string",
+          "paramSource": "external-const",
+          "startingWith": "3-5 kg"
+        },
+        {
+          "paramName": "ruleMinimum",
+          "paramType": "float",
+          "paramSource": "external-const",
+          "startingWith": "3.1"
+        },
+        {
+          "paramName": "ruleMaximum",
+          "paramType": "float",
+          "paramSource": "external-const",
+          "startingWith": "5.0"
+        },
+        {
+          "paramName": "ruleUnit",
+          "paramType": "string",
+          "paramSource": "external-const",
+          "startingWith": "KG"
+        },
+        {
+          "paramName": "applicableValue",
+          "paramType": "float",
+          "paramSource": "external-const",
+          "startingWith": "60.0"
+        }
+      ]
+    },
+    {
+      "paramName": "deliveryChargesRule",
+      "paramType": "[object]",
+      "paramSource": "external-const",
+      "startingWith": [
+        {
+          "paramName": "ruleHeader",
+          "paramType": "string",
+          "paramSource": "external-const",
+          "startingWith": "5-7 kg"
+        },
+        {
+          "paramName": "ruleMinimum",
+          "paramType": "float",
+          "paramSource": "external-const",
+          "startingWith": "5.1"
+        },
+        {
+          "paramName": "ruleMaximum",
+          "paramType": "float",
+          "paramSource": "external-const",
+          "startingWith": "7.0"
+        },
+        {
+          "paramName": "ruleUnit",
+          "paramType": "string",
+          "paramSource": "external-const",
+          "startingWith": "KG"
+        },
+        {
+          "paramName": "applicableValue",
+          "paramType": "float",
+          "paramSource": "external-const",
+          "startingWith": "90.0"
+        }
+      ]
+    },
+    {
+      "paramName": "deliveryChargesRule",
+      "paramType": "[object]",
+      "paramSource": "external-const",
+      "permissibleValueRange": "na",
+      "startingWith": [
+        {
+          "paramName": "ruleHeader",
+          "paramType": "string",
+          "paramSource": "external-const",
+          "startingWith": "7-10 kg"
+        },
+        {
+          "paramName": "ruleMinimum",
+          "paramType": "float",
+          "paramSource": "external-const",
+          "startingWith": "7.1"
+        },
+        {
+          "paramName": "ruleMaximum",
+          "paramType": "float",
+          "paramSource": "external-const",
+          "startingWith": "10.0"
+        },
+        {
+          "paramName": "ruleUnit",
+          "paramType": "string",
+          "paramSource": "external-const",
+          "startingWith": "KG"
+        },
+        {
+          "paramName": "applicableValue",
+          "paramType": "float",
+          "paramSource": "external-const",
+          "startingWith": "120.0"
         }
       ]
     },
     {
       "paramName": "deliveryChargesRule",
       "paramType": "object-array",
-      "paramSource": "external",
+      "paramSource": "external-const",
       "permissibleValueRange": "na",
-      "requestParams": [
+      "startingWith": [
         {
           "paramName": "ruleHeader",
           "paramType": "string",
-          "paramSource": "external",
-          "permissibleValueRange": "3-5 kg"
+          "paramSource": "external-const",
+          "startingWith": "10-15 kg"
         },
         {
           "paramName": "ruleMinimum",
           "paramType": "float",
-          "paramSource": "external",
-          "permissibleValueRange": "3.1"
+          "paramSource": "external-const",
+          "startingWith": "10.1"
         },
         {
           "paramName": "ruleMaximum",
           "paramType": "float",
-          "paramSource": "external",
-          "permissibleValueRange": "5.0"
+          "paramSource": "external-const",
+          "startingWith": "15.0"
         },
         {
           "paramName": "ruleUnit",
           "paramType": "string",
-          "paramSource": "external",
-          "permissibleValueRange": "KG"
+          "paramSource": "external-const",
+          "startingWith": "KG"
         },
         {
           "paramName": "applicableValue",
           "paramType": "float",
-          "paramSource": "external",
-          "permissibleValueRange": "60.0"
+          "paramSource": "external-const",
+          "startingWith": "140.0"
         }
       ]
     },
     {
       "paramName": "deliveryChargesRule",
-      "paramType": "object-array",
-      "paramSource": "external",
+      "paramType": "[object]",
+      "paramSource": "external-const",
       "permissibleValueRange": "na",
-      "requestParams": [
+      "startingWith": [
         {
           "paramName": "ruleHeader",
           "paramType": "string",
-          "paramSource": "external",
-          "permissibleValueRange": "5-7 kg"
+          "paramSource": "external-const",
+          "startingWith": "15-20 kg"
         },
         {
           "paramName": "ruleMinimum",
           "paramType": "float",
-          "paramSource": "external",
-          "permissibleValueRange": "5.1"
+          "paramSource": "external-const",
+          "startingWith": "15.1"
         },
         {
           "paramName": "ruleMaximum",
           "paramType": "float",
-          "paramSource": "external",
-          "permissibleValueRange": "7.0"
+          "paramSource": "external-const",
+          "startingWith": "20.0"
         },
         {
           "paramName": "ruleUnit",
           "paramType": "string",
-          "paramSource": "external",
-          "permissibleValueRange": "KG"
+          "paramSource": "external-const",
+          "startingWith": "KG"
         },
         {
           "paramName": "applicableValue",
           "paramType": "float",
-          "paramSource": "external",
-          "permissibleValueRange": "90.0"
-        }
-      ]
-    },
-    {
-      "paramName": "deliveryChargesRule",
-      "paramType": "object-array",
-      "paramSource": "external",
-      "permissibleValueRange": "na",
-      "requestParams": [
-        {
-          "paramName": "ruleHeader",
-          "paramType": "string",
-          "paramSource": "external",
-          "permissibleValueRange": "7-10 kg"
-        },
-        {
-          "paramName": "ruleMinimum",
-          "paramType": "float",
-          "paramSource": "external",
-          "permissibleValueRange": "7.1"
-        },
-        {
-          "paramName": "ruleMaximum",
-          "paramType": "float",
-          "paramSource": "external",
-          "permissibleValueRange": "10.0"
-        },
-        {
-          "paramName": "ruleUnit",
-          "paramType": "string",
-          "paramSource": "external",
-          "permissibleValueRange": "KG"
-        },
-        {
-          "paramName": "applicableValue",
-          "paramType": "float",
-          "paramSource": "external",
-          "permissibleValueRange": "120.0"
-        }
-      ]
-    },
-    {
-      "paramName": "deliveryChargesRule",
-      "paramType": "object-array",
-      "paramSource": "external",
-      "permissibleValueRange": "na",
-      "requestParams": [
-        {
-          "paramName": "ruleHeader",
-          "paramType": "string",
-          "paramSource": "external",
-          "permissibleValueRange": "10-15 kg"
-        },
-        {
-          "paramName": "ruleMinimum",
-          "paramType": "float",
-          "paramSource": "external",
-          "permissibleValueRange": "10.1"
-        },
-        {
-          "paramName": "ruleMaximum",
-          "paramType": "float",
-          "paramSource": "external",
-          "permissibleValueRange": "15.0"
-        },
-        {
-          "paramName": "ruleUnit",
-          "paramType": "string",
-          "paramSource": "external",
-          "permissibleValueRange": "KG"
-        },
-        {
-          "paramName": "applicableValue",
-          "paramType": "float",
-          "paramSource": "external",
-          "permissibleValueRange": "140.0"
-        }
-      ]
-    },
-    {
-      "paramName": "deliveryChargesRule",
-      "paramType": "object-array",
-      "paramSource": "external",
-      "permissibleValueRange": "na",
-      "requestParams": [
-        {
-          "paramName": "ruleHeader",
-          "paramType": "string",
-          "paramSource": "external",
-          "permissibleValueRange": "15-20 kg"
-        },
-        {
-          "paramName": "ruleMinimum",
-          "paramType": "float",
-          "paramSource": "external",
-          "permissibleValueRange": "15.1"
-        },
-        {
-          "paramName": "ruleMaximum",
-          "paramType": "float",
-          "paramSource": "external",
-          "permissibleValueRange": "20.0"
-        },
-        {
-          "paramName": "ruleUnit",
-          "paramType": "string",
-          "paramSource": "external",
-          "permissibleValueRange": "KG"
-        },
-        {
-          "paramName": "applicableValue",
-          "paramType": "float",
-          "paramSource": "external",
-          "permissibleValueRange": "170.0"
+          "paramSource": "external-const",
+          "startingWith": "170.0"
         }
       ]
     }

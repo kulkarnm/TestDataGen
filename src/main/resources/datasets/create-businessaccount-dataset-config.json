@@ -4,25 +4,25 @@
     {
       "paramName": "merchantId",
       "paramType": "string",
-      "paramSource": "internal",
-      "permissibleValueRange": "subscriptionRules#maximumPermissibleAmount"
+      "paramSource": "external-const",
+      "startingWith": "merchant1"
     },
     {
       "paramName": "startDate",
       "paramType": "date",
-      "paramSource": "external",
-      "permissibleValueRange": "#(businessAccountStartDateFormatted)"
+      "paramSource": "internal-process-output",
+      "startingWith": "#(businessAccountStartDateFormatted)"
     },
     {
       "paramName": "endDate",
       "paramType": "date",
-      "paramSource": "external",
+      "paramSource": "internal-process-output",
       "permissibleValueRange": "#(businessAccountEndDateFormatted)"
     },
     {
       "paramName": "dateOfProvision",
       "paramType": "date",
-      "paramSource": "external",
+      "paramSource": "internal-process-output",
       "permissibleValueRange": "#(businessAccountStartDateFormatted)"
     }
   ],
