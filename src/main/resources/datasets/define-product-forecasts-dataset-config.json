@@ -31,7 +31,7 @@
           "paramName": "MRP",
           "paramType": "float",
           "paramSource": "internal-process-output",
-          "relation" : "n1= purchasePricePerUnit + 0.2*purchasePricePerUnit"
+          "relation" : "1.2*purchasePricePerUnit"
         },
         {
           "paramName": "numberOfNewSubscriptions",
@@ -44,7 +44,7 @@
           "paramName": "numberOfChurnedSubscriptions",
           "paramType": "int",
           "paramSource": "internal-process-output",
-          "relation": "n1 = numberOfNewSubscriptions*0.15"
+          "relation": "0.15*numberOfNewSubscriptions"
         },
         {
           "paramName": "forecastContentStatus",

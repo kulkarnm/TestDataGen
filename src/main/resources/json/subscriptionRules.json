@@ -1,0 +1,56 @@
+{
+  "diffBetweenDeliveryPreparationAndDispatchDate": 2,
+  "actualsAggregationPeriodForTargetForecast": 30,
+  "maximumPermissibleDiscount": 0.2,
+  "minimumAmountEligibleForFreeShipping": 1000,
+  "contingencyStockPercentage": 0.1,
+  "maximumPermissibleAmount": 50000,
+  "minimumAmountForDiscountEligibility": 20000,
+  "maximumPermissibleDiscountUnit": 1,
+  "subscriptionValueRanges": [
+    {
+      "minValue": 0,
+      "maxValue": 4999
+    },
+    {
+      "minValue": 5000,
+      "maxValue": 8000
+    },
+    {
+      "minValue": 8001,
+      "maxValue": 10000
+    },
+    {
+      "minValue": 10001,
+      "maxValue": 13000
+    },
+    {
+      "minValue": 13001,
+      "maxValue": 18000
+    },
+    {
+      "minValue": 18001,
+      "maxValue": 25000
+    },
+    {
+      "minValue": 25001,
+      "maxValue": 30000
+    },
+    {
+      "minValue": 30001,
+      "maxValue": 35000
+    },
+    {
+      "minValue": 35001,
+      "maxValue": 40000
+    },
+    {
+      "minValue": 40001,
+      "maxValue": 50000
+    },
+    {
+      "minValue": 50001,
+      "maxValue": -1
+    }
+  ]
+}

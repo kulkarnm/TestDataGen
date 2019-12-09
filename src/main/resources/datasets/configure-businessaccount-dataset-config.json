@@ -16,20 +16,20 @@
     {
       "paramName": "startDateOfFinancialYear",
       "paramType": "date",
-      "paramSource": "external-const",
+      "paramSource": "internal-process-output",
       "startingWith": "#(businessAccountStartDateFormatted)"
     },
     {
       "paramName": "endDateOfFinancialYear",
       "paramType": "date",
-      "paramSource": "external-const",
+      "paramSource": "internal-process-output",
       "startingWith": "#(businessAccountEndDateFormatted)"
     },
     {
       "paramName": "taxAsPercentageOfAnnualRevenue",
       "paramType": "float",
       "paramSource": "external-const",
-      "permissibleValueRange": "0.2"
+      "startingWith": "0.2"
     }
   ],
   "responseParams" : [

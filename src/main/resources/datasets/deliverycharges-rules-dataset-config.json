@@ -152,7 +152,7 @@
     },
     {
       "paramName": "deliveryChargesRule",
-      "paramType": "object-array",
+      "paramType": "[object]",
       "paramSource": "external-const",
       "permissibleValueRange": "na",
       "startingWith": [

@@ -1,0 +1,7 @@
+{"deliveryChargesRule": [
+  {"ruleHeader": "15-20 kg"},
+  {"ruleMinimum": 15.1},
+  {"ruleMaximum": 20},
+  {"ruleUnit": "KG"},
+  {"applicableValue": 170}
+]}

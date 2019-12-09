@@ -148,6 +148,8 @@ public class ProcessElementConfigBuilder {
             RequestConfigBuilder requestConfigBuilder = new RequestConfigBuilder();
             System.out.println("datasetConfigFileName: " + datasetConfigFileName);
             this.requestConfigBuilder = requestConfigBuilder.buildRequestConfigBuilder(parser.parse(datasetConfigFileName), datasetElementName);
+            RequestBuilder requestBuilder = new RequestBuilder();
+            requestBuilder.buildRequest(requestConfigBuilder);
         } else {
             //for now do nothing.. some writes may not have requests and responses
         }

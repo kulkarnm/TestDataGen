@@ -17,13 +17,13 @@
       "paramName": "endDate",
       "paramType": "date",
       "paramSource": "internal-process-output",
-      "permissibleValueRange": "#(businessAccountEndDateFormatted)"
+      "startingWith": "#(businessAccountEndDateFormatted)"
     },
     {
       "paramName": "dateOfProvision",
       "paramType": "date",
       "paramSource": "internal-process-output",
-      "permissibleValueRange": "#(businessAccountStartDateFormatted)"
+      "startingWith": "#(businessAccountStartDateFormatted)"
     }
   ],
   "responseParams" : [
