@@ -1,4 +1,4 @@
-package com.testgen.userjourney.genetrators;
+package com.testgen.userjourney.generators;
 
 import java.util.Collections;
 import java.util.HashMap;

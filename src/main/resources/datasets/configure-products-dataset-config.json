@@ -8,6 +8,12 @@
       "startingWith": "30"
     },
     {
+      "paramName": "merchantId",
+      "paramType": "string",
+      "paramSource": "internal-process-output",
+      "startingWith": "configureBusinessAccount#merchantId"
+    },
+    {
       "paramName": "targetChangeThresholdForPriceChange",
       "paramType": "float",
       "paramSource": "external-const",

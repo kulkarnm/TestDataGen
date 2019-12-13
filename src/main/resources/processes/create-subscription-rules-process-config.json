@@ -1,5 +1,5 @@
 {
   "processId": "create-subscription-rules",
   "processExecutionType" : "one-time",
-  "dataset-config": "subscription-rules-dataset-config#subscriptionRules"
+  "dataset-config": "configure-businessaccount-dataset-config#configureBusinessAccount"
 }

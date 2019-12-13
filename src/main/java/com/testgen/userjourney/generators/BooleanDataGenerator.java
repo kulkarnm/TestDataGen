@@ -1,4 +1,4 @@
-package com.testgen.userjourney.genetrators;
+package com.testgen.userjourney.generators;
 
 public class BooleanDataGenerator implements DataGenerator {
     @Override
@@ -7,7 +7,7 @@ public class BooleanDataGenerator implements DataGenerator {
     }
 
     @Override
-    public Object getValueFromInternalProcessOutput(String startingWithStr) {
+    public Object getValueFromInternalProcessOutput(String processName, String paramName) {
         return null;
     }
 

@@ -4,8 +4,8 @@
     {
       "paramName": "merchantId",
       "paramType": "string",
-      "paramSource": "external-const",
-      "startingWith": "merchant1"
+      "paramSource": "internal-process-output",
+      "startingWith": "configureBusinessAccount#merchantId"
     },
     {
       "paramName": "startDate",

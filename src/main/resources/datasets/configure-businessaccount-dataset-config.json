@@ -17,13 +17,13 @@
       "paramName": "startDateOfFinancialYear",
       "paramType": "date",
       "paramSource": "internal-process-output",
-      "startingWith": "#(businessAccountStartDateFormatted)"
+      "startingWith": "GlobalCache#businessAccountStartDateFormatted"
     },
     {
       "paramName": "endDateOfFinancialYear",
       "paramType": "date",
       "paramSource": "internal-process-output",
-      "startingWith": "#(businessAccountEndDateFormatted)"
+      "startingWith": "GlobalCache#businessAccountEndDateFormatted"
     },
     {
       "paramName": "taxAsPercentageOfAnnualRevenue",

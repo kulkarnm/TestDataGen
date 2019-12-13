@@ -1,4 +1,4 @@
-package com.testgen.userjourney.genetrators;
+package com.testgen.userjourney.generators;
 
 import com.testgen.userjourney.config.process.RequestParamBuilder;
 
@@ -12,7 +12,8 @@ public class InternalProcessOutputGenerator {
         this.requestParamBuilder = requestParamBuilder;
 
         if(null != requestParamBuilder.getStartingWithStr()){
-            return dataGenerator.getValueFromInternalProcessOutput(requestParamBuilder.getStartingWithStr());
+            String s[] = requestParamBuilder.getStartingWithStr().split("#");
+            return dataGenerator.getValueFromInternalProcessOutput(s[0], s[1]);
         }
         if (null != requestParamBuilder.getPermissibleValueRange()){
             return dataGenerator.getRandomValueWithinPermissibleRange(requestParamBuilder.getPermissibleValueRange());

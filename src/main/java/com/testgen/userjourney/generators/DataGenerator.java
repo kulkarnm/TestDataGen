@@ -1,9 +1,9 @@
-package com.testgen.userjourney.genetrators;
+package com.testgen.userjourney.generators;
 
 public interface DataGenerator {
     Object generateExternalConstValue(String startingWithStr);
 
-    Object getValueFromInternalProcessOutput(String startingWithStr);
+    Object getValueFromInternalProcessOutput(String processName, String paramName);
 
     Object getRandomValueWithinPermissibleRange(String range);
 

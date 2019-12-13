@@ -10,6 +10,12 @@ public class CacheSegment {
     private JSONObject paramValue1;
     private String paramValue;
 
+    public CacheSegment(String paraName, String paramType, String paramValue) {
+        this.setParamName(paraName);
+        this.setParamValue(paramValue);
+        this.setParamType(paramType);
+    }
+
     public String getParamValue() {
         return paramValue;
     }
@@ -41,14 +47,6 @@ public class CacheSegment {
 
     public void setParamName(String paramName) {
         this.paramName = paramName;
-    }
-
-    public CacheSegment createCacheSegmentFromJSON(String processName, String paramType, String paramValue){
-        CacheSegment cacheSegment = new CacheSegment();
-        cacheSegment.setParamName(processName);
-        cacheSegment.setParamType(paramType);
-        cacheSegment.setParamValue(paramValue);
-        return cacheSegment;
     }
 
 }

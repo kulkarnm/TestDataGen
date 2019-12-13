@@ -1,4 +1,4 @@
-package com.testgen.userjourney.genetrators;
+package com.testgen.userjourney.generators;
 
 import java.util.Arrays;
 import java.util.Random;
@@ -10,7 +10,7 @@ public class EnumDataGenerator implements DataGenerator {
     }
 
     @Override
-    public Object getValueFromInternalProcessOutput(String startingWithStr) {
+    public Object getValueFromInternalProcessOutput(String startingWithStr, String paramName) {
         return null;
     }
 

@@ -2,9 +2,9 @@ package com.testgen.userjourney.config.process;
 
 import com.testgen.userjourney.cache.Cache;
 import com.testgen.userjourney.cache.CacheSegment;
-import com.testgen.userjourney.genetrators.DataGenerator;
-import com.testgen.userjourney.genetrators.DataGeneratorSupplier;
-import com.testgen.userjourney.genetrators.InternalProcessOutputGenerator;
+import com.testgen.userjourney.generators.DataGenerator;
+import com.testgen.userjourney.generators.DataGeneratorSupplier;
+import com.testgen.userjourney.generators.InternalProcessOutputGenerator;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -20,6 +20,7 @@ public class RequestBuilder {
 
     public RequestBuilder() {
         requestJson = new JSONObject();
+        Cache.populateGlobalCache();
     }
 
     public RequestBuilder buildRequest(RequestConfigBuilder requestConfigBuilder) {
@@ -38,18 +39,17 @@ public class RequestBuilder {
     }
 
     private void addToJsonRequest(RequestParamBuilder requestParam) {
-        CacheSegment cacheSegment = new CacheSegment();
         if ("[".equals(requestParam.getParamType().substring(0, 1))) {
             JSONArray jsonArray = new JSONArray();
             requestParam.getStartingWith().stream().forEach(
                     e -> jsonArray.put(generateRequestForTypeObject(e))
             );
             requestJson.put(requestParam.getParamName(), jsonArray);
-            this.cacheSegmentToBeAddedInCache = cacheSegment.createCacheSegmentFromJSON(requestParam.getParamName(), "Request", jsonArray.toString());
+            this.cacheSegmentToBeAddedInCache = new CacheSegment(requestParam.getParamName(), "Request", jsonArray.toString() );
         } else {
             Object jsonValue = getRequestParamValue(requestParam);
             requestJson.put(requestParam.getParamName(), jsonValue);
-            this.cacheSegmentToBeAddedInCache = cacheSegment.createCacheSegmentFromJSON(requestParam.getParamName(), "Request", jsonValue.toString());
+            this.cacheSegmentToBeAddedInCache = new CacheSegment(requestParam.getParamName(), "Request", jsonValue.toString());
         }
         Cache.addToCache(processName, this.cacheSegmentToBeAddedInCache);
     }

@@ -1,6 +1,5 @@
-package com.testgen.userjourney.genetrators;
+package com.testgen.userjourney.generators;
 
-import java.util.List;
 import java.util.Random;
 
 public class IntegerDataGenerator implements DataGenerator {
@@ -10,7 +9,7 @@ public class IntegerDataGenerator implements DataGenerator {
     }
 
     @Override
-    public Object getValueFromInternalProcessOutput(String startingWithStr) {
+    public Object getValueFromInternalProcessOutput(String startingWithStr, String paramName) {
         return null;
     }
 
