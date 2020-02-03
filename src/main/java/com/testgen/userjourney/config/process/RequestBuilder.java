@@ -23,11 +23,10 @@ public class RequestBuilder {
         Cache.populateGlobalCache();
     }
 
-    public RequestBuilder buildRequest(RequestConfigBuilder requestConfigBuilder) {
+    public void buildRequest(RequestConfigBuilder requestConfigBuilder) {
         this.processName = requestConfigBuilder.getRequestId();
         requestConfigBuilder.getRequestParamBuilders().stream().forEach(e -> addToJsonRequest(e));
         writeRequestToJsonFile(requestJson, requestConfigBuilder.getRequestId());
-        return this;
     }
 
     private void writeRequestToJsonFile(JSONObject requestJson, String requestId) {

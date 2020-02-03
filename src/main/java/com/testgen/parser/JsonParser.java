@@ -14,10 +14,7 @@ public class JsonParser {
             String genreJson = "";
             URL url = Resources.getResource(schemaFileName);
             genreJson = Resources.toString(url, Charsets.UTF_8);
-            //System.out.println("json:" + genreJson);
             JSONObject json = new JSONObject(genreJson);
-            //System.out.println(json.toString());
-            //System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
             return json;
         } catch (IOException ex) {
             ex.printStackTrace();
