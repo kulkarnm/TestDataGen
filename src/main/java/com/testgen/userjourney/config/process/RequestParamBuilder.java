@@ -127,7 +127,7 @@ public class RequestParamBuilder {
                 case "external-const":
                     this.setParamSource(ParamSource.EXTERNAL_CONST);
                     break;
-                case "internal-process-input":
+                case "internal-process-output":
                     this.setParamSource(ParamSource.INTERNAL_PROCESS_OUTPUT);
             }
         } else {

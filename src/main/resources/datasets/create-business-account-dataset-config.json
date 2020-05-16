@@ -4,8 +4,8 @@
     {
       "paramName": "merchantId",
       "paramType": "string",
-      "paramSource": "external-const",
-      "startingWith": "merchant1"
+      "paramSource": "internal-process-output",
+      "startingWith": "configureBusinessAccount#merchantId"
     },
     {
       "paramName": "startDate",
@@ -17,13 +17,13 @@
       "paramName": "endDate",
       "paramType": "date",
       "paramSource": "internal-process-output",
-      "permissibleValueRange": "#(businessAccountEndDateFormatted)"
+      "startingWith": "#(businessAccountEndDateFormatted)"
     },
     {
       "paramName": "dateOfProvision",
       "paramType": "date",
       "paramSource": "internal-process-output",
-      "permissibleValueRange": "#(businessAccountStartDateFormatted)"
+      "startingWith": "#(businessAccountStartDateFormatted)"
     }
   ],
   "responseParams" : [

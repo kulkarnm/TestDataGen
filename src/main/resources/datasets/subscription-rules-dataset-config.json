@@ -56,7 +56,7 @@
       "startingWith":[
         {
           "paramName": "subscriptionValueRange",
-          "paramType": "[object]",
+          "paramType": "object",
           "paramSource": "external-const",
           "startingWith": [
             {
@@ -75,7 +75,7 @@
         },
         {
           "paramName": "subscriptionValueRange",
-          "paramType": "[object]",
+          "paramType": "object",
           "paramSource": "external-const",
           "startingWith": [
             {
@@ -94,7 +94,7 @@
         },
         {
           "paramName": "subscriptionValueRange",
-          "paramType": "[object]",
+          "paramType": "object",
           "paramSource": "external-const",
           "startingWith": [
             {
@@ -113,7 +113,7 @@
         },
         {
           "paramName": "subscriptionValueRange",
-          "paramType": "[object]",
+          "paramType": "object",
           "paramSource": "external-const",
           "startingWith": [
             {
@@ -132,7 +132,7 @@
         },
         {
           "paramName": "subscriptionValueRange",
-          "paramType": "[object]",
+          "paramType": "object",
           "paramSource": "external-const",
           "startingWith": [
             {
@@ -151,7 +151,7 @@
         },
         {
           "paramName": "subscriptionValueRange",
-          "paramType": "[object]",
+          "paramType": "object",
           "paramSource": "external-const",
           "startingWith": [
             {
@@ -170,7 +170,7 @@
         },
         {
           "paramName": "subscriptionValueRange",
-          "paramType": "[object]",
+          "paramType": "object",
           "paramSource": "external-const",
           "startingWith": [
             {
@@ -189,7 +189,7 @@
         },
         {
           "paramName": "subscriptionValueRange",
-          "paramType": "[object]",
+          "paramType": "object",
           "paramSource": "external-const",
           "startingWith": [
             {
@@ -208,7 +208,7 @@
         },
         {
           "paramName": "subscriptionValueRange",
-          "paramType": "[object]",
+          "paramType": "object",
           "paramSource": "external-const",
           "startingWith": [
             {
@@ -227,7 +227,7 @@
         },
         {
           "paramName": "subscriptionValueRange",
-          "paramType": "[object]",
+          "paramType": "object",
           "paramSource": "external-const",
           "startingWith": [
             {
@@ -246,7 +246,7 @@
         },
         {
           "paramName": "subscriptionValueRange",
-          "paramType": "[object]",
+          "paramType": "object",
           "paramSource": "external-const",
           "startingWith": [
             {

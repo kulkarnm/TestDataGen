@@ -6,12 +6,6 @@
   "childProcessElements": [
     {
       "processRef": "subscriber-initial-setup-process-config#subscriberInitialSetup"
-    },
-    {
-      "processRef": "business-initial-setup-process-config#businessInitialSetup"
-    },
-    {
-      "processRef": "define-products-process-config#define-products"
     }
   ]
 }

@@ -8,6 +8,12 @@
       "startingWith": "30"
     },
     {
+      "paramName": "merchantId",
+      "paramType": "string",
+      "paramSource": "internal-process-output",
+      "startingWith": "configureBusinessAccount#merchantId"
+    },
+    {
       "paramName": "targetChangeThresholdForPriceChange",
       "paramType": "float",
       "paramSource": "external-const",
@@ -64,22 +70,26 @@
         {
           "paramName":"PURCHASE_PRICE_PER_UNIT",
           "paramType": "enum",
-          "paramSource": "external-const"
+          "paramSource": "external-const",
+          "startingWith": "PURCHASE_PRICE_PER_UNIT"
         },
         {
           "paramName":"FIXED_EXPENSE_PER_UNIT",
           "paramType": "enum",
-          "paramSource": "external-const"
+          "paramSource": "external-const",
+          "startingWith": "FIXED_EXPENSE_PER_UNIT"
         } ,
         {
           "paramName":"VARIABLE_EXPENSE_PER_UNIT",
           "paramType": "enum",
-          "paramSource": "external-const"
+          "paramSource": "external-const",
+          "startingWith": "VARIABLE_EXPENSE_PER_UNIT"
         } ,
         {
           "paramName":"TAX_PER_UNIT",
           "paramType": "enum",
-          "paramSource": "external-const"
+          "paramSource": "external-const",
+          "startingWith": "TAX_PER_UNIT"
         }
       ]
     },
