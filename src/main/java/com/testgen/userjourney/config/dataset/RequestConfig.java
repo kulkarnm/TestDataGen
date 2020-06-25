@@ -24,4 +24,25 @@ public class RequestConfig {
     public void addToResponseParams(ResponseParam responseParam){
         this.responseParams.add(responseParam);
     }
+
+    public String getRequestId() {
+        return requestId;
+    }
+
+    public List<RequestParam> getRequestParams() {
+        return requestParams;
+    }
+
+    public List<ResponseParam> getResponseParams() {
+        return responseParams;
+    }
+
+    @Override
+    public String toString() {
+        return "RequestConfig{" +
+                "requestId='" + requestId + '\'' +
+                ", requestParams=" + requestParams +
+                ", responseParams=" + responseParams +
+                '}';
+    }
 }

@@ -6,9 +6,4 @@ public class LeafProcessElementConfig extends AbstractProcessElementConfig {
     public LeafProcessElementConfig(ProcessElementConfigBuilder builder) {
         super(builder.getProcessId(),builder.getProcessExecutionType(),builder.getExecutionCount(),builder.isMultiCasting(),builder.getRequestConfigBuilder().buildRequestConfig());
     }
-
-    @Override
-    public void addToProcessElements(ProcessElementConfig processElementConfig) {
-        //do nothing;
-    }
 }

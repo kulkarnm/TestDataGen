@@ -2,16 +2,17 @@ package com.testgen.userjourney.config.process;
 
 import com.testgen.userjourney.config.dataset.RequestConfig;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class AbstractProcessElementConfig implements ProcessElementConfig {
+public class AbstractProcessElementConfig {
     private String processId;
     private ProcessExecutionType processExecutionType;
     private int executionCount;
     private boolean multiCasting;
     private RequestConfig dataSetConfig;
-    private List<ProcessElementConfig> childProcesses;
+    private List<AbstractProcessElementConfig> childProcesses;
 
     public AbstractProcessElementConfig(String processId) {
         this.processId = processId;
@@ -66,15 +67,37 @@ public abstract class AbstractProcessElementConfig implements ProcessElementConf
         this.dataSetConfig = dataSetConfig;
     }
 
-    public List<ProcessElementConfig> getChildProcesses() {
+    public List<AbstractProcessElementConfig> getChildProcesses() {
         return childProcesses;
     }
 
-    private void setChildProcesses(List<ProcessElementConfig> childProcesses) {
+    private void setChildProcesses(List<AbstractProcessElementConfig> childProcesses) {
         this.childProcesses = childProcesses;
     }
 
-    public void addToProcessElements(ProcessElementConfig processElementConfig){
+    public void addToProcessElements(AbstractProcessElementConfig processElementConfig) {
         this.childProcesses.add(processElementConfig);
+    }
+
+
+    public void getTask() {
+        //File directory = createFolder();
+        try {
+            RequestBuilder requestBuilder =new RequestBuilder();
+            requestBuilder.buildRequest(this.dataSetConfig);
+            for(AbstractProcessElementConfig config: this.getChildProcesses()){
+                config.getTask();
+            }
+        } catch (Exception e) {
+            throw new IllegalStateException("######task interrupted", e);
+        }
+    }
+
+    public File createFolder() {
+        File newDirectory = new File(processId, "new_directory");
+        if (!newDirectory.exists()) {
+            newDirectory.mkdir();
+        }
+        return newDirectory;
     }
 }

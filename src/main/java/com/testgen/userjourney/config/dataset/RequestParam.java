@@ -59,10 +59,32 @@ public class RequestParam {
         return interRelation;
     }
 
+    public String getStartingWithStr() {
+        return startingWithStr;
+    }
+
+    public List<RequestParam> getStartingWith() {
+        return startingWith;
+    }
+
     public void addToChildRequestParams(RequestParam requestParam){
         if(null == startingWith){
             this.startingWith= new ArrayList<>();
         }
         this.startingWith.add(requestParam);
+    }
+
+    @Override
+    public String toString() {
+        return "RequestParam{" +
+                "paramName='" + paramName + '\'' +
+                ", paramType='" + paramType + '\'' +
+                ", paramSource=" + paramSource +
+                ", startingWithStr='" + startingWithStr + '\'' +
+                ", permissibleValueRange='" + permissibleValueRange + '\'' +
+                ", startingWith=" + startingWith +
+                ", repeatChildren=" + repeatChildren +
+                ", interRelation='" + interRelation + '\'' +
+                '}';
     }
 }

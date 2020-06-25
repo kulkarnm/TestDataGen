@@ -1,25 +1,25 @@
 package com.testgen.userjourney.generators;
 
-import com.testgen.userjourney.config.process.RequestParamBuilder;
+import com.testgen.userjourney.config.dataset.RequestParam;
 
 public class InternalProcessOutputGenerator {
 
     private DataGenerator dataGenerator;
-    private RequestParamBuilder requestParamBuilder;
+    private RequestParam requestParam;
 
-    public Object getInternalProcessOutput(DataGenerator dataGenerator, RequestParamBuilder requestParamBuilder){
+    public Object getInternalProcessOutput(DataGenerator dataGenerator, RequestParam requestParam){
         this.dataGenerator = dataGenerator;
-        this.requestParamBuilder = requestParamBuilder;
+        this.requestParam = requestParam;
 
-        if(null != requestParamBuilder.getStartingWithStr()){
-            String s[] = requestParamBuilder.getStartingWithStr().split("#");
+        if(null != requestParam.getStartingWithStr()){
+            String s[] = requestParam.getStartingWithStr().split("#");
             return dataGenerator.getValueFromInternalProcessOutput(s[0], s[1]);
         }
-        if (null != requestParamBuilder.getPermissibleValueRange()){
-            return dataGenerator.getRandomValueWithinPermissibleRange(requestParamBuilder.getPermissibleValueRange());
+        if (null != requestParam.getPermissibleValueRange()){
+            return dataGenerator.getRandomValueWithinPermissibleRange(requestParam.getPermissibleValueRange());
         }
-        if (null != requestParamBuilder.getInterRelation()){
-            String s[] = requestParamBuilder.getInterRelation().split("\\*");
+        if (null != requestParam.getInterRelation()){
+            String s[] = requestParam.getInterRelation().split("\\*");
             return dataGenerator.getDerivedValue(s[0],s[1]);
         }
         return null;

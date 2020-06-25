@@ -2,6 +2,8 @@ package com.testgen.userjourney.config.process;
 
 import com.testgen.userjourney.cache.Cache;
 import com.testgen.userjourney.cache.CacheSegment;
+import com.testgen.userjourney.config.dataset.RequestConfig;
+import com.testgen.userjourney.config.dataset.RequestParam;
 import com.testgen.userjourney.generators.DataGenerator;
 import com.testgen.userjourney.generators.DataGeneratorSupplier;
 import com.testgen.userjourney.generators.InternalProcessOutputGenerator;
@@ -23,11 +25,22 @@ public class RequestBuilder {
         Cache.populateGlobalCache();
     }
 
+    //main method to build test data jsons
+    public void buildRequest(RequestConfig requestConfig) {
+        if(null != requestConfig) {
+            this.processName = requestConfig.getRequestId();
+            requestConfig.getRequestParams().stream().forEach(e -> addToJsonRequest(e));
+            writeRequestToJsonFile(requestJson, requestConfig.getRequestId());
+        }
+    }
+
+/*
     public void buildRequest(RequestConfigBuilder requestConfigBuilder) {
         this.processName = requestConfigBuilder.getRequestId();
         requestConfigBuilder.getRequestParamBuilders().stream().forEach(e -> addToJsonRequest(e));
         writeRequestToJsonFile(requestJson, requestConfigBuilder.getRequestId());
     }
+*/
 
     private void writeRequestToJsonFile(JSONObject requestJson, String requestId) {
         try (FileWriter file = new FileWriter("src/main/resources/json/" + requestId + ".json")) {
@@ -37,7 +50,7 @@ public class RequestBuilder {
         }
     }
 
-    private void addToJsonRequest(RequestParamBuilder requestParam) {
+    private void addToJsonRequest(RequestParam requestParam) {
         if ("[".equals(requestParam.getParamType().substring(0, 1))) {
             JSONArray jsonArray = new JSONArray();
             requestParam.getStartingWith().stream().forEach(
@@ -53,7 +66,7 @@ public class RequestBuilder {
         Cache.addToCache(processName, this.cacheSegmentToBeAddedInCache);
     }
 
-    private Object getRequestParamValue(RequestParamBuilder requestParam) {
+    private Object getRequestParamValue(RequestParam requestParam) {
 
         DataGeneratorSupplier dataGeneratorSupplier = new DataGeneratorSupplier();
         this.dataGenerator = dataGeneratorSupplier.supplyDataGenerator(requestParam.getParamType());
@@ -71,7 +84,7 @@ public class RequestBuilder {
         }
     }
 
-    private JSONObject generateRequestForTypeObject(RequestParamBuilder requestParam) {
+    private JSONObject generateRequestForTypeObject(RequestParam requestParam) {
         JSONObject jsonObject = new JSONObject();
         if (requestParam.getParamType().equals("object")) {
             requestParam.getStartingWith().stream().forEach(

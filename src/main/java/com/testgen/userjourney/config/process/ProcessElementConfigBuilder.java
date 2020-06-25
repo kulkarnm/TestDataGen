@@ -2,6 +2,7 @@ package com.testgen.userjourney.config.process;
 
 import com.testgen.exceptions.NoDataSetDefinitionForProcessException;
 import com.testgen.parser.JsonParser;
+import com.testgen.userjourney.config.dataset.RequestConfig;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -80,12 +81,38 @@ public class ProcessElementConfigBuilder {
     public List<ProcessElementConfigBuilder> getChildProcesses() {
         return childProcesses;
     }
-
-/*
-    public void build(String processDefinitionFile) throws NoDataSetDefinitionForProcessException {
-        buildTestRequests(processDefinitionFile);
+    public void childProcesses(List<ProcessElementConfigBuilder> childProcesses){
+        this.childProcesses=childProcesses;
     }
-*/
+    public void requestConfigBuilder(RequestConfigBuilder requestConfigBuilder) {
+        this.requestConfigBuilder = requestConfigBuilder;
+    }
+
+    public static AbstractProcessElementConfig execute(String processDefinitionFile) throws NoDataSetDefinitionForProcessException {
+        ProcessElementConfigBuilder rootProcessElementConfiguration = readProcessConfig(processDefinitionFile);
+        AbstractProcessElementConfig rootElement = rootProcessElementConfiguration.build();
+       // print(rootElement);
+        return rootElement;
+    }
+
+    public AbstractProcessElementConfig build() throws NoDataSetDefinitionForProcessException {
+        AbstractProcessElementConfig processElement = null;
+        List<ProcessElementConfigBuilder> childProcesses = this.getChildProcesses();
+        if (null != childProcesses && !childProcesses.isEmpty()) {
+            processElement = new CompositeProcessConfig(this);
+            for (ProcessElementConfigBuilder childElementBuilder : childProcesses) {
+                processElement.addToProcessElements(childElementBuilder.build());
+            }
+        } else {
+            if(null != this.getRequestConfigBuilder()) {
+                processElement = new LeafProcessElementConfig(this);
+            }else{
+                throw NoDataSetDefinitionForProcessException.build();
+            }
+        }
+        return processElement;
+    }
+
 
 /*
     private ProcessElementConfig buildProcessElement() throws NoDataSetDefinitionForProcessException {
@@ -107,63 +134,88 @@ public class ProcessElementConfigBuilder {
     }
 */
 
-    public static ProcessElementConfigBuilder buildTestRequests(String processDefinitionFile) throws NoDataSetDefinitionForProcessException {
-        JSONObject jsonObject = null;
-        if (null != processDefinitionFile) {
-            jsonObject = parser.parse(processDefinitionFile);
-        } else {
-            jsonObject = parser.parse("processes/root-process-config.json");
-        }
-        ProcessElementConfigBuilder processElementConfigBuilder = new ProcessElementConfigBuilder();
+    private static JSONObject readJsonFile(String processDefinitionFile){
+        return parser.parse(processDefinitionFile);
+    }
+    private static String readProcessId(JSONObject jsonObject){
         if (jsonObject.has("processId")) {
-            String processId = jsonObject.getString("processId");
-            processElementConfigBuilder.processId(processId);
+            return jsonObject.getString("processId");
+            //processElementConfigBuilder.processId(processId);
         } else {
             throw new RuntimeException("processId is missing");
         }
+    }
 
+    private static ProcessExecutionType readProcessExecutionType(JSONObject jsonObject){
         if (jsonObject.has("processExecutionType")) {
             String processExecutionTypeStr = jsonObject.getString("processExecutionType");
             switch (processExecutionTypeStr) {
                 case "one-time":
-                    processElementConfigBuilder.processExecutionType(ProcessExecutionType.ONETIME);
-                    break;
+                    //processElementConfigBuilder.processExecutionType(ProcessExecutionType.ONETIME);
+                    return ProcessExecutionType.ONETIME;
                 case "recurring":
-                    processElementConfigBuilder.processExecutionType(ProcessExecutionType.RECURRING);
-                    break;
+                    return ProcessExecutionType.RECURRING;
                 default:
-                    processElementConfigBuilder.processExecutionType(ProcessExecutionType.ONETIME);
+                    return ProcessExecutionType.ONETIME;
             }
         }
+        return ProcessExecutionType.ONETIME;
+    }
+    private static int readExecutionCount(JSONObject jsonObject){
         int executionCount = 1;
         if (jsonObject.has("executionCount")) {
             executionCount = jsonObject.getInt("executionCount");
         }
-        processElementConfigBuilder.executionCount(executionCount);
+        return executionCount;
+    }
+
+    private static boolean readMulticasting(JSONObject jsonObject){
         boolean multiCasting = false;
         if (jsonObject.has("multiCasting")) {
             multiCasting = jsonObject.getBoolean("multiCasting");
         }
-        processElementConfigBuilder.multiCasting(multiCasting);
-
+        return multiCasting;
+    }
+    private static List<ProcessElementConfigBuilder> buildChildProcesses(JSONObject jsonObject)  throws NoDataSetDefinitionForProcessException {
+        List<ProcessElementConfigBuilder> childProcesses = new ArrayList<>();
         if (jsonObject.has("childProcessElements")) {
             JSONArray childProcessElementsJsons = jsonObject.getJSONArray("childProcessElements");
             if (null != childProcessElementsJsons && !childProcessElementsJsons.isEmpty()) {
                 for (int i = 0; i < childProcessElementsJsons.length(); i++) {
                     String childProcessRef = childProcessElementsJsons.getJSONObject(i).getString("processRef");
-                    processElementConfigBuilder.childProcesses.add(buildTestRequests("processes/" + childProcessRef.substring(0, childProcessRef.indexOf("#")) + ".json"));
+                    childProcesses.add(readProcessConfig("processes/" + childProcessRef.substring(0, childProcessRef.indexOf("#")) + ".json"));
                 }
             }
-        } else {
+            return childProcesses;
+        }
+        return null;
+    }
+
+    private static  RequestConfigBuilder readRequestConfigBuilder(JSONObject jsonObject) throws NoDataSetDefinitionForProcessException {
             //dataset config is only allowed for leaf elements
             if (jsonObject.has("dataset-config")) {
                 String datasetConfigLocation = jsonObject.getString("dataset-config");
                 RequestConfigBuilder requestConfigBuilder = readDataSetConfig(datasetConfigLocation);
-                RequestBuilder requestBuilder = new RequestBuilder();
-                requestBuilder.buildRequest(requestConfigBuilder);
+                //to be done in a multithreaded way
+                //RequestBuilder requestBuilder = new RequestBuilder();
+                //requestBuilder.buildRequest(requestConfigBuilder);
+               return requestConfigBuilder;
             } else {
                 throw NoDataSetDefinitionForProcessException.build();
             }
+    }
+    public static ProcessElementConfigBuilder readProcessConfig(String processDefinitionFile) throws NoDataSetDefinitionForProcessException {
+        JSONObject jsonObject = readJsonFile(processDefinitionFile);
+        ProcessElementConfigBuilder processElementConfigBuilder = new ProcessElementConfigBuilder();
+        processElementConfigBuilder.processId(readProcessId(jsonObject));
+        processElementConfigBuilder.processExecutionType(readProcessExecutionType(jsonObject));
+        processElementConfigBuilder.executionCount(readExecutionCount(jsonObject));
+        processElementConfigBuilder.multiCasting(readMulticasting(jsonObject));
+        List<ProcessElementConfigBuilder> childProcesses = buildChildProcesses(jsonObject);
+        if(null != childProcesses && !childProcesses.isEmpty()){
+            processElementConfigBuilder.childProcesses(childProcesses);
+        }else{
+            processElementConfigBuilder.dataSetConfig(readRequestConfigBuilder(jsonObject));
         }
         return processElementConfigBuilder;
     }
