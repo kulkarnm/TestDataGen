@@ -10,6 +10,7 @@ import com.testgen.userjourney.generators.InternalProcessOutputGenerator;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -26,24 +27,52 @@ public class RequestBuilder {
     }
 
     //main method to build test data jsons
-    public void buildRequest(RequestConfig requestConfig) {
-        if(null != requestConfig) {
+    public Boolean buildRequest(String processId, RequestConfig requestConfig) {
+        if (null != requestConfig) {
             this.processName = requestConfig.getRequestId();
             requestConfig.getRequestParams().stream().forEach(e -> addToJsonRequest(e));
-            writeRequestToJsonFile(requestJson, requestConfig.getRequestId());
+            writeRequestToJsonFile(requestJson, requestConfig.getRequestId(), processId);
+        }
+        return true;
+    }
+
+    /*
+        public void buildRequest(RequestConfigBuilder requestConfigBuilder) {
+            this.processName = requestConfigBuilder.getRequestId();
+            requestConfigBuilder.getRequestParamBuilders().stream().forEach(e -> addToJsonRequest(e));
+            writeRequestToJsonFile(requestJson, requestConfigBuilder.getRequestId());
+        }
+    */
+
+    private synchronized void createFolder(String processId) {
+        try {
+            String folderPath = "resources\\json\\" + processId;
+            File newFile = new File(folderPath);
+            if (!newFile.exists()) {
+                newFile.mkdirs();
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
     }
 
-/*
-    public void buildRequest(RequestConfigBuilder requestConfigBuilder) {
-        this.processName = requestConfigBuilder.getRequestId();
-        requestConfigBuilder.getRequestParamBuilders().stream().forEach(e -> addToJsonRequest(e));
-        writeRequestToJsonFile(requestJson, requestConfigBuilder.getRequestId());
+    private synchronized File createFile(String processId, String requestId) {
+        try {
+            createFolder(processId);
+            File newFile = new File("resources\\json\\" + processId + "\\" + requestId + ".json");
+            newFile.createNewFile();
+            return newFile;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return null;
     }
-*/
 
-    private void writeRequestToJsonFile(JSONObject requestJson, String requestId) {
-        try (FileWriter file = new FileWriter("src/main/resources/json/" + requestId + ".json")) {
+    private void writeRequestToJsonFile(JSONObject requestJson, String requestId, String processId) {
+
+        System.out.println(requestJson);
+        File newFile = createFile(processId, requestId);
+        try (FileWriter file = new FileWriter(newFile)) {
             file.write(requestJson.toString(2));
         } catch (IOException e) {
             e.printStackTrace();
@@ -57,7 +86,7 @@ public class RequestBuilder {
                     e -> jsonArray.put(generateRequestForTypeObject(e))
             );
             requestJson.put(requestParam.getParamName(), jsonArray);
-            this.cacheSegmentToBeAddedInCache = new CacheSegment(requestParam.getParamName(), "Request", jsonArray.toString() );
+            this.cacheSegmentToBeAddedInCache = new CacheSegment(requestParam.getParamName(), "Request", jsonArray.toString());
         } else {
             Object jsonValue = getRequestParamValue(requestParam);
             requestJson.put(requestParam.getParamName(), jsonValue);

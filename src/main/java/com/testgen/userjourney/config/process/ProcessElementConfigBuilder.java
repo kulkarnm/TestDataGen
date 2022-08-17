@@ -180,7 +180,7 @@ public class ProcessElementConfigBuilder {
         List<ProcessElementConfigBuilder> childProcesses = new ArrayList<>();
         if (jsonObject.has("childProcessElements")) {
             JSONArray childProcessElementsJsons = jsonObject.getJSONArray("childProcessElements");
-            if (null != childProcessElementsJsons && !childProcessElementsJsons.isEmpty()) {
+            if (null != childProcessElementsJsons && childProcessElementsJsons.length()>0) {
                 for (int i = 0; i < childProcessElementsJsons.length(); i++) {
                     String childProcessRef = childProcessElementsJsons.getJSONObject(i).getString("processRef");
                     childProcesses.add(readProcessConfig("processes/" + childProcessRef.substring(0, childProcessRef.indexOf("#")) + ".json"));

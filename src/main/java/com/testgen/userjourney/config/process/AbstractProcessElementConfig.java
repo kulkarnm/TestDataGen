@@ -5,6 +5,9 @@ import com.testgen.userjourney.config.dataset.RequestConfig;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutorService;
+import java.util.function.Supplier;
 
 public class AbstractProcessElementConfig {
     private String processId;
@@ -80,24 +83,22 @@ public class AbstractProcessElementConfig {
     }
 
 
-    public void getTask() {
+    public Supplier<Boolean> getTask(ExecutorService pool) {
         //File directory = createFolder();
+        return () -> {
+                Boolean status = false;
         try {
-            RequestBuilder requestBuilder =new RequestBuilder();
-            requestBuilder.buildRequest(this.dataSetConfig);
-            for(AbstractProcessElementConfig config: this.getChildProcesses()){
-                config.getTask();
+            RequestBuilder requestBuilder = new RequestBuilder();
+            status = requestBuilder.buildRequest(this.processId,this.dataSetConfig);
+            for (AbstractProcessElementConfig config : this.getChildProcesses()) {
+                CompletableFuture.supplyAsync(config.getTask(pool),pool).get();
             }
         } catch (Exception e) {
             throw new IllegalStateException("######task interrupted", e);
         }
+        return status;
+    };
     }
 
-    public File createFolder() {
-        File newDirectory = new File(processId, "new_directory");
-        if (!newDirectory.exists()) {
-            newDirectory.mkdir();
-        }
-        return newDirectory;
-    }
+
 }
